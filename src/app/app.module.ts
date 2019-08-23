@@ -5,11 +5,15 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FormsModule } from '@angular/forms'
 import { HeroCreationComponent } from './hero-creation/hero-creation.component';
+import { WeaponPickComponent } from './weapon-pick/weapon-pick.component';
+import { DungeonOneComponent } from './dungeon-one/dungeon-one.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HeroCreationComponent
+    HeroCreationComponent,
+    WeaponPickComponent,
+    DungeonOneComponent
   ],
   imports: [
     BrowserModule,

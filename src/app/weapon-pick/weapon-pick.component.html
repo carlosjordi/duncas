@@ -1,0 +1,27 @@
+<div *ngIf="!weaponPicked">
+
+    <div class="text-center">
+        <p class="blue medium">Est&aacute;s a un paso de comenzar tu aventura en los
+            calabozos de Duncas, pero un guerrero no puede ir por ah&iacute; sin un arma!</p>
+
+        <p class="green regular">Una figura encapuchada se acerca a ti y...</p>
+
+        <p class="narrative small story">Hombre encapuchado: Veo que eres nuevo por aqu&iacute;.
+            Ten, llevate una de estas, seguro que le das mejor uso que yo.</p>
+    </div>
+
+    <div class="container">
+
+        <div class="weapon" *ngFor="let weapon of weapons">
+            <label>Arma: {{weapon.type}}</label>
+            <label>Da&ntilde;o: {{weapon.damage}}</label>
+            <label>Cualidad: {{weapon.skill}}</label>
+            <label class="bold">{{weapon.description}}</label>
+            <button class="select-weapon" (click)="selectWeapon(weapon)">Seleccionar</button>
+        </div>
+
+    </div>
+
+</div>
+
+<app-dungeon-one [hero]="hero" [weapon]="selectedWeapon" *ngIf="weaponPicked"></app-dungeon-one>

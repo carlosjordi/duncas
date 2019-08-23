@@ -26,6 +26,10 @@
     cursor: pointer;
 }
 
+.lvlup-stat:hover{
+    background-color: hsl(21, 43%, 25%);
+}
+
 .small{
     width: 22px;
 }

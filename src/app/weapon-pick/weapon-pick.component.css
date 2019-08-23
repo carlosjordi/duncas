@@ -1,0 +1,52 @@
+.medium{
+    font-size: 1.2em;
+}
+
+.regular{
+    font-size: 1.1em;
+}
+
+.small{
+    font-size: 1em;
+}
+
+.text-center{
+    text-align: center;
+}
+
+.story{
+    text-align: left;
+}
+
+.bold{
+    font-weight: 600;
+}
+
+.container{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-evenly;
+    width: 90vw;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.weapon{
+    display: flex;
+    flex-flow: column wrap;
+    width: 225px;
+    margin-bottom: 10px;
+    padding: 5px;
+}
+
+.select-weapon{
+    background-color: hsl(21, 23%, 25%);
+    color: #fff;
+    font-weight: 900;
+    outline: none;
+    cursor: pointer;
+}
+
+.select-weapon:hover{
+    background-color: hsl(21, 43%, 25%);
+}

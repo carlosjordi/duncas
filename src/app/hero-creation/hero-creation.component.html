@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container" *ngIf="!created">
 
     <p>Crea tu personaje</p>
 
@@ -51,3 +51,4 @@
 
 </div>
 
+<app-weapon-pick [hero]="hero" *ngIf="created"></app-weapon-pick>

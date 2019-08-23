@@ -11,6 +11,7 @@ export class HeroCreationComponent implements OnInit {
 
   hero: Hero
   message: string = ''
+  created: boolean = false
 
   constructor(
     private heroService: HeroService
@@ -68,6 +69,11 @@ export class HeroCreationComponent implements OnInit {
   }
 
   confirmHero(){
+
+    if (this.hero.name.trim() && this.hero.points == 0){
+      this.created = true
+    }
+
     if (!this.hero.name.trim()){
       this.message = 'No te olvides de tu nombre!'
     }
