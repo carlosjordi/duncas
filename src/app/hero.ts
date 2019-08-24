@@ -8,4 +8,6 @@ export class Hero{
     experience: number = 0.0
     points: number = 5
     hitpoints: number // la vida que sale del hp, fuerza y una constante
+    gold: number = 0
+    items: Array<object> = []
 }

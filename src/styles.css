@@ -1,4 +1,8 @@
 /* You can add global styles to this file, and also import other style files */
+h3{
+    margin-bottom: 4px;
+}
+
 .blue{
     color: hsl(240, 100%, 50%);
 }
@@ -9,4 +13,33 @@
 
 .narrative{
     color: hsl(16, 25%, 38%)
+}
+
+.medium{
+    font-size: 1.2em;
+}
+
+.regular{
+    font-size: 1.1em;
+}
+
+.small{
+    font-size: 1em;
+}
+
+.text-center{
+    text-align: center;
+}
+
+.story{
+    text-align: left;
+}
+
+.bold{
+    font-weight: 600;
+}
+
+.overview{
+    border: 1px solid hsl(21, 23%, 25%);
+    padding: 5px;
 }
