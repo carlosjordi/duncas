@@ -11,6 +11,7 @@ import { HeroOverviewComponent } from './hero-overview/hero-overview.component';
 import { MonsterOverviewComponent } from './monster-overview/monster-overview.component';
 import { BattleOverviewComponent } from './battle-overview/battle-overview.component';
 import { BattleResultComponent } from './battle-result/battle-result.component';
+import { DungeonTwoComponent } from './dungeon-two/dungeon-two.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { BattleResultComponent } from './battle-result/battle-result.component';
     HeroOverviewComponent,
     MonsterOverviewComponent,
     BattleOverviewComponent,
-    BattleResultComponent
+    BattleResultComponent,
+    DungeonTwoComponent
   ],
   imports: [
     BrowserModule,

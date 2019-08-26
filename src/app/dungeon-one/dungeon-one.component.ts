@@ -20,6 +20,8 @@ export class DungeonOneComponent implements OnInit {
   heroWon: boolean
   monsterWon: boolean
 
+  nextDungeon: boolean
+
   constructor(
     private monsterService: MonsterService
   ) { }
@@ -46,6 +48,10 @@ export class DungeonOneComponent implements OnInit {
 
   monsterWonShowResult(won: boolean){
     this.monsterWon = won
+  }
+
+  continueToNextDungeon(advance: boolean){
+    this.nextDungeon = advance
   }
 
 }

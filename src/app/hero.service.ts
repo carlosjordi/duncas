@@ -129,4 +129,14 @@ export class HeroService {
     this.hero.hitpoints -= damageTaken
   }
 
+  // rewards
+
+  rewardExperience(monster: Monsters){
+    this.hero.experience += monster.experience
+  }
+
+  rewardGold(monster: Monsters){
+    this.hero.gold += monster.gold
+  }
+
 }

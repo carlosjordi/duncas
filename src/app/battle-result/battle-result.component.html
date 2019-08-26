@@ -1,1 +1,13 @@
-<p>battle-result works!</p>
+<div *ngIf="heroWon">
+    <p>{{hero.name.toUpperCase()}} ha derrotado al {{monster.type}}</p>
+    <p>Has obtenido {{monster.experience}} de experiencia y {{monster.gold}} de oro.</p>
+    <button (click)="continueToNextDungeon()">Continuar</button>
+</div>
+
+<div *ngIf="monsterWon">
+    <p>{{hero.name.toUpperCase()}}: Noo!! Piedad!</p>
+    <p>El {{monster.type}} lanza un &uacute;ltimo ataque el cual te rompe el cuello.
+        Es el fin de la aventura.</p>
+    <button>Volver a Empezar</button>
+</div>
+
