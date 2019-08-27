@@ -4,6 +4,7 @@ import { Weapon } from '../weapon';
 import { HeroService } from '../hero.service';
 import { Monsters } from '../monsters/monsters';
 import { MonsterService } from '../monster.service';
+import { WeaponService } from '../weapon.service';
 
 @Component({
   selector: 'app-hero-overview',
@@ -25,7 +26,8 @@ export class HeroOverviewComponent implements OnInit {
 
   constructor(
     private heroService: HeroService,
-    private monsterService: MonsterService
+    private monsterService: MonsterService,
+    private weaponService: WeaponService
   ) { }
 
   ngOnInit() {
@@ -34,10 +36,26 @@ export class HeroOverviewComponent implements OnInit {
   heroAttack(hero: Hero, weapon: Weapon): void{
 
     // hero part
-    if (this.heroService.heroAttack(hero, this.monster)){
+    if (this.heroService.heroAttack(hero, this.monster))
+    {
       this.damage = this.heroService.heroDamage(hero, weapon)
       this.message = `${hero.name} acierta y realiza ${this.damage} de daño`
-      this.monsterService.receiveDamage(this.monster, this.damage)
+      //weapon skill
+      if (this.weaponService.skillActivated(weapon))
+      {
+        if (this.weaponService.skillEffect(weapon, hero, this.damage) === true) // spear
+        {
+          this.message = `${hero.name} pierde el equilibrio al agitar la lanza y falla el ataque`
+        }
+        else if(this.weaponService.skillEffect(weapon, hero, this.damage))
+        {
+          
+        }
+      }else{
+        this.monsterService.receiveDamage(this.monster, this.damage)
+      }
+      this.emmitHeroMessage(this.message) // envio el mensaje al papi para el battle overview
+      
       // here we check if combat finishes cuz of monster dying
       if( this.monsterService.checkIfMonsterDied(this.monster))
       {
@@ -46,11 +64,12 @@ export class HeroOverviewComponent implements OnInit {
       }
     } else{
       this.message = `${hero.name} ha fallado el ataque`
+      this.emmitHeroMessage(this.message) // envio el mensaje al papi para el battle overview
     }
-    this.emmitHeroMessage(this.message) // envio el mensaje al papi para el battle overview
     
     // monster part
-    if (this.monsterService.monsterAttack(this.monster, this.hero)){
+    if (this.monsterService.monsterAttack(this.monster, this.hero))
+    {
       this.damage = this.monsterService.monsterDamage(this.monster)
       this.message = `${this.monster.type} acierta y realiza ${this.damage} de daño`
       this.heroService.receiveDamage(this.damage)
