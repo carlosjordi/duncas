@@ -43,15 +43,23 @@ export class HeroOverviewComponent implements OnInit {
       //weapon skill
       if (this.weaponService.skillActivated(weapon))
       {
-        if (this.weaponService.skillEffect(weapon, hero, this.damage) === true) // spear
+        if (this.skillEffect() === true) // spear
         {
           this.message = `${hero.name} pierde el equilibrio al agitar la lanza y falla el ataque`
         }
-        else if(this.weaponService.skillEffect(weapon, hero, this.damage))
+        else if(this.skillEffect()) // sword | bow
         {
-          
+          if (weapon.type == 'Arco')
+          {
+            this.message = `${hero.name} logra apuntar a la cabeza logrando un crítico de ${this.damage * 2}!`
+            this.monsterService.receiveDamage(this.monster, this.damage * 2)
+          }
+          else{
+            this.message = `${hero.name} realiza un corte letal causando daño extra! ${this.damage + +this.skillEffect()}`
+            this.monsterService.receiveDamage(this.monster, this.damage + +this.skillEffect())
+          }
         }
-      }else{
+      }else{ // skill not activated
         this.monsterService.receiveDamage(this.monster, this.damage)
       }
       this.emmitHeroMessage(this.message) // envio el mensaje al papi para el battle overview
@@ -85,6 +93,10 @@ export class HeroOverviewComponent implements OnInit {
 
   private emmitMonsterMessage(message: string){
     this.monsterMessageEmmiter.emit(message)
+  }
+
+  private skillEffect(){
+    return this.weaponService.skillEffect(this.weapon, this.hero, this.damage)
   }
 
 }

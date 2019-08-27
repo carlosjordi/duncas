@@ -6,6 +6,6 @@ export class Sword extends Weapon{
     damage = '2-7'
     minimumDamage: number = 2
     maximumDamage: number = 7
-    skill: string = 'Desangre'
-    description: string = 'Chance de herir gravemente y causar daño continuo'
+    skill: string = 'Corte'
+    description: string = 'Causa daño adicional al herir gravemente al enemigo'
 }
