@@ -23,6 +23,9 @@ export class HeroOverviewComponent implements OnInit {
   //para el resultado del combate
   @Output() heroWonEmitter = new EventEmitter<boolean>()
   @Output() monsterWonEmitter = new EventEmitter<boolean>()
+  pocketText: string = 'Bolsa'
+  pocketState: boolean = false
+  @Output() pocketStateEmitter = new EventEmitter<boolean>()
 
   constructor(
     private heroService: HeroService,
@@ -33,70 +36,82 @@ export class HeroOverviewComponent implements OnInit {
   ngOnInit() {
   }
 
-  heroAttack(hero: Hero, weapon: Weapon): void{
+  heroAttack(hero: Hero, weapon: Weapon): void {
 
     // hero part
-    if (this.heroService.heroAttack(hero, this.monster))
-    {
+    if (this.heroService.heroAttack(hero, this.monster)) {
       this.damage = this.heroService.heroDamage(hero, weapon)
       this.message = `${hero.name} acierta y realiza ${this.damage} de daño`
       //weapon skill
-      if (this.weaponService.skillActivated(weapon))
-      {
+      if (this.weaponService.skillActivated(weapon)) {
         if (this.skillEffect() === true) // spear
         {
           this.message = `${hero.name} pierde el equilibrio al agitar la lanza y falla el ataque`
         }
-        else if(this.skillEffect()) // sword | bow
+        else if (this.skillEffect()) // sword | bow
         {
-          if (weapon.type == 'Arco')
-          {
+          if (weapon.type == 'Arco') {
             this.message = `${hero.name} logra apuntar a la cabeza logrando un crítico de ${this.damage * 2}!`
             this.monsterService.receiveDamage(this.monster, this.damage * 2)
           }
-          else{
+          else {
             this.message = `${hero.name} realiza un corte letal causando daño extra! ${this.damage + +this.skillEffect()}`
             this.monsterService.receiveDamage(this.monster, this.damage + +this.skillEffect())
           }
         }
-      }else{ // skill not activated
+      } else { // skill not activated
         this.monsterService.receiveDamage(this.monster, this.damage)
       }
       this.emmitHeroMessage(this.message) // envio el mensaje al papi para el battle overview
-      
+
       // here we check if combat finishes cuz of monster dying
-      if( this.monsterService.checkIfMonsterDied(this.monster))
-      {
+      if (this.monsterService.checkIfMonsterDied(this.monster)) {
         this.heroWonEmitter.emit(true) //check later if dmg of monster still applied even tho i 'killed it'
         return;
       }
-    } else{
+    } else {
       this.message = `${hero.name} ha fallado el ataque`
       this.emmitHeroMessage(this.message) // envio el mensaje al papi para el battle overview
     }
-    
+
     // monster part
-    if (this.monsterService.monsterAttack(this.monster, this.hero))
-    {
+    if (this.monsterService.monsterAttack(this.monster, this.hero)) {
       this.damage = this.monsterService.monsterDamage(this.monster)
       this.message = `${this.monster.type} acierta y realiza ${this.damage} de daño`
       this.heroService.receiveDamage(this.damage)
-    }else{
+    } else {
       this.message = `${this.monster.type} ha fallado el ataque`
     }
     this.emmitMonsterMessage(this.message)
   }
 
-  private emmitHeroMessage(message: string){
+  private emmitHeroMessage(message: string) {
     this.heroMessageEmmiter.emit(message)
   }
 
-  private emmitMonsterMessage(message: string){
+  private emmitMonsterMessage(message: string) {
     this.monsterMessageEmmiter.emit(message)
   }
 
-  private skillEffect(){
+  private skillEffect() {
     return this.weaponService.skillEffect(this.weapon, this.hero, this.damage)
+  }
+
+  changePocketState() {
+    this.changePocketText()
+    this.sendPocketState()
+  }
+
+  private changePocketText() {
+    if (this.pocketText == 'Bolsa')
+      this.pocketText = 'Cerrar'
+    else if (this.pocketText == 'Cerrar')
+      this.pocketText = 'Bolsa'
+  }
+
+  private sendPocketState(){
+    this.pocketState = !this.pocketState
+    this.pocketStateEmitter.emit(this.pocketState)
   }
 
 }

@@ -4,7 +4,7 @@
         <h3>{{hero.name}}</h3>
         <label>Vida: {{hero.hitpoints}}</label>
         <button (click)="heroAttack(hero, weapon)">Atacar!</button>
-        <button>Bolsa</button>
+        <button (click)="changePocketState()">{{pocketText}}</button>
     </div>
 
     <div class="overview">

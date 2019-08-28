@@ -21,6 +21,8 @@ export class DungeonOneComponent implements OnInit {
   monsterWon: boolean
 
   nextDungeon: boolean
+  // pocket
+  pocketState: boolean
 
   constructor(
     private monsterService: MonsterService
@@ -52,6 +54,10 @@ export class DungeonOneComponent implements OnInit {
 
   continueToNextDungeon(advance: boolean){
     this.nextDungeon = advance
+  }
+
+  changePocketState(change: boolean){
+    this.pocketState = change
   }
 
 }

@@ -12,6 +12,7 @@ import { MonsterOverviewComponent } from './monster-overview/monster-overview.co
 import { BattleOverviewComponent } from './battle-overview/battle-overview.component';
 import { BattleResultComponent } from './battle-result/battle-result.component';
 import { DungeonTwoComponent } from './dungeon-two/dungeon-two.component';
+import { PocketComponent } from './pocket/pocket.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { DungeonTwoComponent } from './dungeon-two/dungeon-two.component';
     MonsterOverviewComponent,
     BattleOverviewComponent,
     BattleResultComponent,
-    DungeonTwoComponent
+    DungeonTwoComponent,
+    PocketComponent
   ],
   imports: [
     BrowserModule,

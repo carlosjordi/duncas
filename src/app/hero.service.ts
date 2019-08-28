@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Hero } from './hero';
 import { Monsters } from './monsters/monsters';
 import { Weapon } from './weapon';
+import { Item } from './items/item';
 
 @Injectable({
   providedIn: 'root'
@@ -76,6 +77,10 @@ export class HeroService {
     this.hero.hitpoints = this.hero.hp * 4 + this.hero.strength * 2 + 10
   }
 
+  maxHp(): number{
+    return this.hero.maxHp = this.hero.hp * 4 + this.hero.strength * 2 + 10;
+  }
+
   decreasePoints(): void {
     this.hero.points -= 1
   }
@@ -139,4 +144,48 @@ export class HeroService {
     this.hero.gold += monster.gold
   }
 
+  // buying items
+
+  buyItem(item: Item)
+  {
+    this.noItems(item)
+    this.oneOrMoreItems(item)
+  }
+
+  private noItems(item: Item){
+    if (this.hero.items.length = 0)
+    {
+      this.hero.items.push(item)
+      return;
+    }
+  }
+
+  private oneOrMoreItems(item: Item){
+    for (let i = 0; i < this.hero.items.length; i++)
+    {
+      if (item.name == this.hero.items[i].name){
+        this.hero.items[i].amount += 1
+        return;
+      }
+    }
+    this.hero.items.push(item)
+  }
+
+  // using items
+
+  useItem(item: Item)
+  {
+    this.consumeItem(item)
+    this.applyEffect(item)
+  }
+
+  private consumeItem(item: Item){
+    item.amount -= 1
+  }
+
+  private applyEffect(item: Item){
+    this.hero.hitpoints += item.effect * this.hero.maxHp
+    if(this.hero.hitpoints > this.maxHp())
+      this.hero.hitpoints = this.maxHp()
+  }
 }

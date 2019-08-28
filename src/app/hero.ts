@@ -1,3 +1,5 @@
+import { Item } from './items/item';
+
 export class Hero{
     name: string = ''
     hp: number = 2
@@ -9,5 +11,6 @@ export class Hero{
     points: number = 5
     hitpoints: number // la vida que sale del hp, fuerza y una constante
     gold: number = 0
-    items: Array<object> = []
+    items: Array<Item> = []
+    maxHp: number
 }

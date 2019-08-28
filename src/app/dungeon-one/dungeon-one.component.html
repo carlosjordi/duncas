@@ -16,8 +16,11 @@
         (monsterMessageEmmiter)="receiveMonsterMessage($event)"
         (heroWonEmitter)="heroWonShowResult($event)"
         (monsterWonEmitter)="monsterWonShowResult($event)"
+        (pocketStateEmitter)="changePocketState($event)"
         *ngIf="!heroWon && !monsterWon">
     </app-hero-overview>
+
+    <app-pocket [hero]="hero" *ngIf="pocketState"></app-pocket>
 
     <app-battle-overview [heroMessage]="heroMessage" *ngIf="heroMessage"
         [monsterMessage]="monsterMessage"
