@@ -11,6 +11,6 @@ export class Hero{
     points: number = 5
     hitpoints: number // la vida que sale del hp, fuerza y una constante
     gold: number = 0
-    items: Array<Item> = []
+    items: Item [] = []
     maxHp: number
 }

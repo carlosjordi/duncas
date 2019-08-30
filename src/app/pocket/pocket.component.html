@@ -6,11 +6,11 @@
             <label>Item: {{item.name}}</label>
             <label>Descripci&oacute;n: {{item.effectDescription}}</label>
             <label>Cantidad: {{item.amount}}</label>
-            <button>Usar</button>
+            <button (click)="useItem(item)">Usar</button>
         </div>
     </div>
 </div>
 
-<div *ngIf="hero.items.length = 0">
-    No cuentas con ning&uacute;n objeto en tu bolsa :(
+<div *ngIf="hero.items.length == 0">
+    No cuentas con ning&uacute;n objeto en tu bolsa
 </div>

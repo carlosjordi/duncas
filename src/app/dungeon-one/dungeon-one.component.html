@@ -1,4 +1,4 @@
-<div *ngIf="!nextDungeon">
+<div *ngIf="!nextStore">
 
     <div class="text-center">
         <p class="blue medium">Despu&eacute;s de tomar un arma del hombre encapuchado sigues rumbo a los
@@ -7,32 +7,27 @@
         <p class="green regular">Un esqueleto andante te corta el paso y no pretende apartarse por las buenas</p>
 
         <p class="narrative small story">{{hero.name}}: Pero que se supone que es esto!?</p>
-
         <p class="narrative small story">Esqueleto: Argh nor!</p>
     </div>
 
-    <app-hero-overview [hero]="hero" [monster]="monster" [weapon]="weapon" 
-        (heroMessageEmmiter)="receiveMessage($event)"
-        (monsterMessageEmmiter)="receiveMonsterMessage($event)"
-        (heroWonEmitter)="heroWonShowResult($event)"
-        (monsterWonEmitter)="monsterWonShowResult($event)"
-        (pocketStateEmitter)="changePocketState($event)"
+    <app-pocket [hero]="hero" *ngIf="pocketState"></app-pocket>
+
+    <app-hero-overview [hero]="hero" [monster]="monster" [weapon]="weapon" (heroMessageEmmiter)="receiveMessage($event)"
+        (monsterMessageEmmiter)="receiveMonsterMessage($event)" (heroWonEmitter)="heroWonShowResult($event)"
+        (monsterWonEmitter)="monsterWonShowResult($event)" (pocketStateEmitter)="changePocketState($event)"
         *ngIf="!heroWon && !monsterWon">
     </app-hero-overview>
 
-    <app-pocket [hero]="hero" *ngIf="pocketState"></app-pocket>
-
-    <app-battle-overview [heroMessage]="heroMessage" *ngIf="heroMessage"
-        [monsterMessage]="monsterMessage"
+    <app-battle-overview [heroMessage]="heroMessage" *ngIf="heroMessage" [monsterMessage]="monsterMessage"
         [heroWon]="heroWon" [monsterWon]="monsterWon">
     </app-battle-overview>
 
-    <app-battle-result *ngIf="heroWon || monsterWon"
-        [hero]="hero" [monster]="monster"
-        [heroWon]="heroWon" [monsterWon]="monsterWon"
-        (nextDungeonEmitter)="continueToNextDungeon($event)">
+    <app-battle-result *ngIf="heroWon || monsterWon" [hero]="hero" [monster]="monster" [heroWon]="heroWon"
+        [monsterWon]="monsterWon" (nextDungeonEmitter)="continueToNextStore($event)">
     </app-battle-result>
 
 </div>
 
-<app-dungeon-two *ngIf="nextDungeon"></app-dungeon-two>
+<app-store [hero]="hero" [weapon]="weapon" *ngIf="nextStore && openStore" (nextDungeonEmitter)="continueToNextDungeon($event)"></app-store>
+
+<app-dungeon-two [hero]="hero" [weapon]="weapon" *ngIf="nextDungeon"></app-dungeon-two>

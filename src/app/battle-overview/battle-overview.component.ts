@@ -12,6 +12,8 @@ export class BattleOverviewComponent implements OnInit, OnChanges {
   @Input() heroWon: boolean
   @Input() monsterWon: boolean
 
+  defeatMessage: string
+
   constructor() { }
 
   ngOnInit() {
@@ -19,11 +21,17 @@ export class BattleOverviewComponent implements OnInit, OnChanges {
 
   ngOnChanges(){
     this.monsterKilled()
+    this.heroKilled()
   }
 
   monsterKilled(){
     if(this.heroWon)
       this.monsterMessage = ''
+  }
+
+  heroKilled(){
+    if (this.monsterWon)
+      this.defeatMessage = 'Caes contra el piso'
   }
 
 }

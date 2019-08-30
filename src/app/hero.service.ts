@@ -148,15 +148,27 @@ export class HeroService {
 
   buyItem(item: Item)
   {
-    this.noItems(item)
+    if(!this.enoughGold(item)) return;
+    this.reduceGold(item)
+    if (this.noItems(item)) return;
     this.oneOrMoreItems(item)
   }
 
+  private enoughGold(item: Item){
+    if (this.hero.gold < item.price)
+      return false;
+    return true;
+  }
+
+  private reduceGold(item: Item){
+    this.hero.gold -= item.price
+  }
+
   private noItems(item: Item){
-    if (this.hero.items.length = 0)
+    if (this.hero.items.length == 0)
     {
       this.hero.items.push(item)
-      return;
+      return true;
     }
   }
 
@@ -184,8 +196,14 @@ export class HeroService {
   }
 
   private applyEffect(item: Item){
-    this.hero.hitpoints += item.effect * this.hero.maxHp
+    this.hero.hitpoints += (item.effect * this.maxHp())
     if(this.hero.hitpoints > this.maxHp())
       this.hero.hitpoints = this.maxHp()
+  }
+
+  // dying
+
+  checkIfHeroDied(){
+    return this.hero.hitpoints <= 0
   }
 }

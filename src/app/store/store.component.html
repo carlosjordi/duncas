@@ -1,0 +1,33 @@
+<div *ngIf="!nextDungeon">
+    <h3>Tiendita del T&iacute;o Bigotes</h3>
+
+    <p>Bienvenido, en que puedo ayudarte ?</p>
+
+    <div>
+        <label>Oro actual: {{hero.gold}}</label>
+        <div *ngIf="hero.items.length > 0">
+            <label>Objetos</label>
+            <div *ngFor="let item of hero.items">
+                <label>{{item.name}}</label>
+                <label>Cantidad: {{item.amount}}</label>
+            </div>
+        </div>
+    </div>
+
+    <div *ngFor="let item of itemsInStore">
+        <label>{{item.name}}</label>
+        <label>{{item.effectDescription}}</label>
+        <label>Precio: {{item.price}}</label>
+        <button (click)="buyItem(item)">Comprar</button>
+    </div>
+
+    <div>
+        <button (click)="continueToNextDungeon()">Continuar</button>
+    </div>
+
+    <div *ngIf="message">
+        <label>{{message}}</label>
+    </div>
+</div>
+
+<app-dungeon-two [hero]="hero" [weapon]="weapon" *ngIf="nextDungeon"></app-dungeon-two>

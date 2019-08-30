@@ -1,5 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Hero } from '../hero';
+import { HeroService } from '../hero.service';
+import { Item } from '../items/item';
 
 @Component({
   selector: 'app-pocket',
@@ -9,9 +11,15 @@ import { Hero } from '../hero';
 export class PocketComponent implements OnInit {
 
   @Input() hero: Hero
-  constructor() { }
+  constructor(
+    private heroService: HeroService
+  ) { }
 
   ngOnInit() {
+  }
+
+  useItem(item: Item){
+    this.heroService.useItem(item)
   }
 
 }

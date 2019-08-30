@@ -6,7 +6,7 @@ export class Item{
     amount: number
     price: number
 
-    protected constructor(type: string, name: string, effectDescription: string, 
+    constructor(type: string, name: string, effectDescription: string, 
         effect: number, amount: number, price: number){
         this.type = type
         this.name = name

@@ -38,6 +38,9 @@ export class HeroOverviewComponent implements OnInit {
 
   heroAttack(hero: Hero, weapon: Weapon): void {
 
+    if (this.pocketState)
+      this.closePocket()
+
     // hero part
     if (this.heroService.heroAttack(hero, this.monster)) {
       this.damage = this.heroService.heroDamage(hero, weapon)
@@ -79,10 +82,17 @@ export class HeroOverviewComponent implements OnInit {
       this.damage = this.monsterService.monsterDamage(this.monster)
       this.message = `${this.monster.type} acierta y realiza ${this.damage} de daño`
       this.heroService.receiveDamage(this.damage)
+      this.emmitMonsterMessage(this.message)
+
+      // here we check if hero dies
+      if (this.heroService.checkIfHeroDied()){
+        this.monsterWonEmitter.emit(true)
+        return;
+      }
     } else {
       this.message = `${this.monster.type} ha fallado el ataque`
+      this.emmitMonsterMessage(this.message)
     }
-    this.emmitMonsterMessage(this.message)
   }
 
   private emmitHeroMessage(message: string) {
@@ -112,6 +122,12 @@ export class HeroOverviewComponent implements OnInit {
   private sendPocketState(){
     this.pocketState = !this.pocketState
     this.pocketStateEmitter.emit(this.pocketState)
+  }
+
+  private closePocket(){
+    this.pocketText = 'Bolsa'
+    this.pocketStateEmitter.emit(false)
+    this.pocketState = !this.pocketState
   }
 
 }

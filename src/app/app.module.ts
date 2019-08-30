@@ -13,6 +13,8 @@ import { BattleOverviewComponent } from './battle-overview/battle-overview.compo
 import { BattleResultComponent } from './battle-result/battle-result.component';
 import { DungeonTwoComponent } from './dungeon-two/dungeon-two.component';
 import { PocketComponent } from './pocket/pocket.component';
+import { StoreComponent } from './store/store.component';
+import { DungeonThreeComponent } from './dungeon-three/dungeon-three.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +27,9 @@ import { PocketComponent } from './pocket/pocket.component';
     BattleOverviewComponent,
     BattleResultComponent,
     DungeonTwoComponent,
-    PocketComponent
+    PocketComponent,
+    StoreComponent,
+    DungeonThreeComponent
   ],
   imports: [
     BrowserModule,
