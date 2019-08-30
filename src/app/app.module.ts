@@ -15,6 +15,7 @@ import { DungeonTwoComponent } from './dungeon-two/dungeon-two.component';
 import { PocketComponent } from './pocket/pocket.component';
 import { StoreComponent } from './store/store.component';
 import { DungeonThreeComponent } from './dungeon-three/dungeon-three.component';
+import { ThanksComponent } from './thanks/thanks.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { DungeonThreeComponent } from './dungeon-three/dungeon-three.component';
     DungeonTwoComponent,
     PocketComponent,
     StoreComponent,
-    DungeonThreeComponent
+    DungeonThreeComponent,
+    ThanksComponent
   ],
   imports: [
     BrowserModule,

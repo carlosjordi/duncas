@@ -1,1 +1,40 @@
-<p>dungeon-three works!</p>
+<div *ngIf="!nextStore">
+
+    <div class="text-center mrl5">
+        <p class="blue medium">El cuerpo del ogro ahora yace en medio del camino, pero poco te importa eso, lo
+            &uacute;nico que te interesa es encontrar a tu compa&ntilde;ero</p>
+        <p class="green regular">Despu&eacute;s de caminar en l&iacute;nea recta durante 10 minutos observas
+            a un guerrero sentado en las escaleras</p>
+        <p class="narrative small">{{hero.name}}: Buenas, este camino lleva al castillo, cierto ?</p>
+        <p class="green regular">Sin decir palabra alguna, se levanta y saca su espada</p>
+        <p class="narrative small">{{hero.name}}: A decir verdad, preferir&iacute;a no hacer esto.
+            Estoy cansado, sabes ?</p>
+        <p class="narrative small">Caballero Oscuro: Nunca antes un forastero hab&iacute;a llegado hasta aqu&iacute;.
+            Est&aacute; de m&aacute;s decir que de aqu&iacute; no pasas</p>
+    </div>
+
+    <div class="two-container-lr">
+
+        <app-hero-overview [hero]="hero" [monster]="monster" [weapon]="weapon"
+            (heroMessageEmmiter)="receiveMessage($event)" (monsterMessageEmmiter)="receiveMonsterMessage($event)"
+            (heroWonEmitter)="heroWonShowResult($event)" (monsterWonEmitter)="monsterWonShowResult($event)"
+            (pocketStateEmitter)="changePocketState($event)" *ngIf="!heroWon && !monsterWon">
+        </app-hero-overview>
+
+        <app-pocket [hero]="hero" *ngIf="pocketState"></app-pocket>
+    </div>
+
+    <app-battle-overview [heroMessage]="heroMessage" *ngIf="heroMessage" [monsterMessage]="monsterMessage"
+        [heroWon]="heroWon" [monsterWon]="monsterWon">
+    </app-battle-overview>
+
+    <app-battle-result *ngIf="heroWon || monsterWon" [hero]="hero" [monster]="monster" [heroWon]="heroWon"
+        [monsterWon]="monsterWon" (nextDungeonEmitter)="continueToNextStore($event)">
+    </app-battle-result>
+
+</div>
+
+<app-store [hero]="hero" [weapon]="weapon" *ngIf="nextStore && openStore"
+    (nextDungeonEmitter)="continueToNextDungeon($event)"></app-store>
+
+<app-thanks *ngIf="nextDungeon"></app-thanks>

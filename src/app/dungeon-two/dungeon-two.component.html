@@ -2,12 +2,12 @@
 
     <div class="text-center mrl5">
         <p class="blue medium">Tras derrotar a ese esqueleto y conversar con el T&iacute;o Bigotes prosigues tu
-            camino rumbo al castillo de Torlena</p>
+            camino rumbo al castillo de Duncas</p>
         <p class="green regular">Repentinamente el muro a tu izquierda se derrumba, pero logras esquivarlo a tiempo</p>
-        <p class="narrative small story">{{hero.name}}: Esto estuvo cerca, pero que lo habrá ocasionado ?</p>
+        <p class="narrative small">{{hero.name}}: Esto estuvo cerca, pero que lo habrá ocasionado ?</p>
         <p class="green regular">Tus ojos no creen lo que ves salir del agujero. Un enorme monstruo dirige su mirada
             hac&iacute;a ti</p>
-        <p class="narrative small story">Ogro: Jomicda!</p>
+        <p class="narrative small">Ogro: Jomicda!</p>
     </div>
 
     <div class="two-container-lr">
@@ -34,4 +34,4 @@
 <app-store [hero]="hero" [weapon]="weapon" *ngIf="nextStore && openStore"
     (nextDungeonEmitter)="continueToNextDungeon($event)"></app-store>
 
-<app-dungeon-three></app-dungeon-three>
+<app-dungeon-three [hero]="hero" [weapon]="weapon" *ngIf="nextDungeon"></app-dungeon-three>
