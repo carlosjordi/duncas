@@ -1,16 +1,18 @@
-<h4>Bolsa</h4>
+<div class="pocket-container">
+    <h4>Bolsa</h4>
 
-<div *ngIf="hero.items.length > 0">
-    <div *ngFor="let item of hero.items">
-        <div *ngIf="item.amount > 0">
-            <label>Item: {{item.name}}</label>
-            <label>Descripci&oacute;n: {{item.effectDescription}}</label>
-            <label>Cantidad: {{item.amount}}</label>
-            <button (click)="useItem(item)">Usar</button>
+    <div *ngIf="hero.items.length > 0">
+        <div *ngFor="let item of hero.items">
+            <div class="item item-space" *ngIf="item.amount > 0">
+                <label>Item: {{item.name}}</label>
+                <label>Descripci&oacute;n: {{item.effectDescription}}</label>
+                <label>Cantidad: {{item.amount}}</label>
+                <button (click)="useItem(item)">Usar</button>
+            </div>
         </div>
     </div>
-</div>
 
-<div *ngIf="hero.items.length == 0">
-    No cuentas con ning&uacute;n objeto en tu bolsa
+    <div *ngIf="hero.items.length == 0">
+        <p>No cuentas con ning&uacute;n objeto en tu bolsa</p>
+    </div>
 </div>

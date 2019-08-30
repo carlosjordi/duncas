@@ -56,3 +56,31 @@ h3{
     border: 1px solid hsl(21, 23%, 25%);
     padding: 5px;
 }
+
+.button-dungeon{
+    background-color: hsl(21, 23%, 25%);
+    color: #fff;
+    font-weight: 900;
+    outline: none;
+    cursor: pointer;
+}
+
+.p5{
+    padding: 5px;
+}
+
+.message-alert{
+    color: hsl(0, 100%, 50%)
+}
+
+.two-container-lr{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.mrl5{
+    margin-left: 5px;
+    margin-right: 5px;
+}

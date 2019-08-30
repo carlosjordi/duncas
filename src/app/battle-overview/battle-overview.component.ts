@@ -31,7 +31,7 @@ export class BattleOverviewComponent implements OnInit, OnChanges {
 
   heroKilled(){
     if (this.monsterWon)
-      this.defeatMessage = 'Caes contra el piso'
+      this.defeatMessage = 'Caes bruscamente contra el piso'
   }
 
 }

@@ -1,31 +1,35 @@
-<div *ngIf="!nextDungeon">
-    <h3>Tiendita del T&iacute;o Bigotes</h3>
+<div class="text-center" *ngIf="!nextDungeon">
+    <h3 class="blue">Tiendita del T&iacute;o Bigotes</h3>
 
-    <p>Bienvenido, en que puedo ayudarte ?</p>
+    <p class="narrative">Bienvenido, en que puedo ayudarte ?</p>
 
     <div>
-        <label>Oro actual: {{hero.gold}}</label>
+        <label>Oro actual: <b>{{hero.gold}}</b></label>
         <div *ngIf="hero.items.length > 0">
             <label>Objetos</label>
-            <div *ngFor="let item of hero.items">
-                <label>{{item.name}}</label>
-                <label>Cantidad: {{item.amount}}</label>
+            <div class="item-container">
+                <div class="item item-space" *ngFor="let item of hero.items">
+                    <label>{{item.name}}</label>
+                    <label>Cantidad: {{item.amount}}</label>
+                </div>
             </div>
         </div>
     </div>
 
-    <div *ngFor="let item of itemsInStore">
-        <label>{{item.name}}</label>
-        <label>{{item.effectDescription}}</label>
-        <label>Precio: {{item.price}}</label>
-        <button (click)="buyItem(item)">Comprar</button>
+    <div class="item-container">
+        <div class="item item-space" *ngFor="let item of itemsInStore">
+            <label><b>{{item.name}}</b></label>
+            <label>{{item.effectDescription}}</label>
+            <label>Precio: <b>{{item.price}}</b></label>
+            <button class="button-dungeon p5" (click)="buyItem(item)">Comprar</button>
+        </div>
     </div>
 
     <div>
-        <button (click)="continueToNextDungeon()">Continuar</button>
+        <button class="button-dungeon p5" (click)="continueToNextDungeon()">Continuar</button>
     </div>
 
-    <div *ngIf="message">
+    <div class="message-alert" *ngIf="message">
         <label>{{message}}</label>
     </div>
 </div>

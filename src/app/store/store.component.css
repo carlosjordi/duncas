@@ -1,0 +1,17 @@
+.item{
+    display: flex;
+    flex-flow: column wrap;
+    flex: 1;
+}
+
+.item-container{
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+}
+
+.item-space{
+    padding: 4px;
+    margin-bottom: 4px;
+    border: 1px dotted hsl(21, 23%, 25%);
+}

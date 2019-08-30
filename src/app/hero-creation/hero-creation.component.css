@@ -1,5 +1,5 @@
 .container{
-    width: 220px;
+    width: 260px;
     display: flex;
     flex-flow: column wrap;
     margin: 0 auto;
@@ -7,7 +7,6 @@
     align-items: center;
     border: 1px solid hsl(21, 23%, 25%);
     padding: 10px;
-    /* hsl(21, 23%, 25%) */
 }
 
 .stat{
@@ -18,24 +17,12 @@
     width: 100%;
 }
 
-.lvlup-stat{
-    background-color: hsl(21, 23%, 25%);
-    color: #fff;
-    font-weight: 900;
-    outline: none;
-    cursor: pointer;
-}
-
-.lvlup-stat:hover{
+.button-dungeon:hover{
     background-color: hsl(21, 43%, 25%);
 }
 
 .small{
     width: 22px;
-}
-
-.p5{
-    padding: 5px;
 }
 
 .ml5{
@@ -51,8 +38,4 @@ input{
     border: none;
     border-bottom: 1px solid #000;
     outline: none;
-}
-
-.message{
-    color: hsl(0, 100%, 50%)
 }

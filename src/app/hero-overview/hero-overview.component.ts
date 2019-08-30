@@ -58,7 +58,7 @@ export class HeroOverviewComponent implements OnInit {
             this.monsterService.receiveDamage(this.monster, this.damage * 2)
           }
           else {
-            this.message = `${hero.name} realiza un corte letal causando daño extra! ${this.damage + +this.skillEffect()}`
+            this.message = `${hero.name} realiza un corte letal causando daño extra ${this.damage + +this.skillEffect()}!!`
             this.monsterService.receiveDamage(this.monster, this.damage + +this.skillEffect())
           }
         }

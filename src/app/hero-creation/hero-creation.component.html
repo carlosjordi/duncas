@@ -14,38 +14,38 @@
     <div class="stat">
         <label>Puntos de Salud: {{hero.hp}}</label>
         <div class="buttons">
-            <button class="lvlup-stat small" (click)="hpUp()">+</button>
-            <button class="lvlup-stat small ml5" (click)="hpDown()">-</button>
+            <button class="button-dungeon small" (click)="hpUp()">+</button>
+            <button class="button-dungeon small ml5" (click)="hpDown()">-</button>
         </div>
     </div>
 
     <div class="stat">
         <label>Fuerza: {{hero.strength}}</label>
         <div class="buttons">
-            <button class="lvlup-stat small" (click)="strengthUp()">+</button>
-            <button class="lvlup-stat small ml5" (click)="strengthDown()">-</button>
+            <button class="button-dungeon small" (click)="strengthUp()">+</button>
+            <button class="button-dungeon small ml5" (click)="strengthDown()">-</button>
         </div>
     </div>
 
     <div class="stat">
         <label>Destreza: {{hero.dexterity}}</label>
         <div class="buttons">
-            <button class="lvlup-stat small" (click)="dexterityUp()">+</button>
-            <button class="lvlup-stat small ml5" (click)="dexterityDown()">-</button>
+            <button class="button-dungeon small" (click)="dexterityUp()">+</button>
+            <button class="button-dungeon small ml5" (click)="dexterityDown()">-</button>
         </div>
     </div>
 
     <div class="stat">
         <label>Percepci&oacute;n: {{hero.perception}}</label>
         <div class="buttons">
-            <button class="lvlup-stat small" (click)="perceptionUp()">+</button>
-            <button class="lvlup-stat small ml5" (click)="perceptionDown()">-</button>
+            <button class="button-dungeon small" (click)="perceptionUp()">+</button>
+            <button class="button-dungeon small ml5" (click)="perceptionDown()">-</button>
         </div>
     </div>
 
-    <button class="lvlup-stat p5" (click)="confirmHero()">Confirmar!</button>
+    <button class="button-dungeon p5" (click)="confirmHero()">Confirmar!</button>
 
-    <div class="message" *ngIf="message">
+    <div class="message-alert" *ngIf="message">
         {{message}}
     </div>
 
