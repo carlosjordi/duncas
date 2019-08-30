@@ -23,6 +23,8 @@ export class StoreComponent implements OnInit {
   message: string = ''
   @Output() nextDungeonEmitter = new EventEmitter<boolean>()
 
+  nextDungeon: boolean
+
   constructor(
     private heroService: HeroService
   ) { }
