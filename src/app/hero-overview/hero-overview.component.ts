@@ -1,17 +1,18 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, OnChanges } from '@angular/core';
 import { Hero } from '../hero';
 import { Weapon } from '../weapon';
 import { HeroService } from '../hero.service';
 import { Monsters } from '../monsters/monsters';
 import { MonsterService } from '../monster.service';
 import { WeaponService } from '../weapon.service';
+import { Item } from '../items/item';
 
 @Component({
   selector: 'app-hero-overview',
   templateUrl: './hero-overview.component.html',
   styleUrls: ['./hero-overview.component.css']
 })
-export class HeroOverviewComponent implements OnInit {
+export class HeroOverviewComponent implements OnInit, OnChanges {
 
   @Input() hero: Hero
   @Input() monster: Monsters
@@ -26,6 +27,10 @@ export class HeroOverviewComponent implements OnInit {
   pocketText: string = 'Bolsa'
   pocketState: boolean = false
   @Output() pocketStateEmitter = new EventEmitter<boolean>()
+  // potion
+  @Input() potionUsed: boolean
+  @Input() potionConsumed: Item
+  @Output() actionTakenEmitter = new EventEmitter<boolean>()
 
   constructor(
     private heroService: HeroService,
@@ -34,10 +39,28 @@ export class HeroOverviewComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    
+  }
+
+  ngOnChanges(){
+    if (this.potionUsed)
+      this.potionTurn()
+  }
+
+  actionTaken(){
+    this.actionTakenEmitter.emit(true)
+  }
+
+  potionTurn(){
+    this.actionTaken()
+    this.emmitHeroMessage(`${this.hero.name} usa una ${this.potionConsumed.name} y se cura ${this.potionConsumed.effect * this.heroService.maxHp()} de salud`)
+    this.monsterAttack()
+    this.potionUsed = false
   }
 
   heroAttack(hero: Hero, weapon: Weapon): void {
 
+    this.actionTaken()
     if (this.pocketState)
       this.closePocket()
 

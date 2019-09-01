@@ -46,6 +46,12 @@ export class BattleResultComponent implements OnInit {
 
   continueToNextDungeon() {
     this.nextDungeonEmitter.emit(true)
+    this.rewardItem()
+  }
+
+  private rewardItem(){
+    if (this.monster.item != null)
+      this.heroService.addItem(this.monster.item)
   }
 
   rewardExperience() {

@@ -185,6 +185,13 @@ export class HeroService {
     this.hero.items.push(item)
   }
 
+  // acquire item
+
+  addItem(item: Item){
+    if (this.noItems(item)) return;
+    this.oneOrMoreItems(item)
+  }
+
   // using items
 
   useItem(item: Item)

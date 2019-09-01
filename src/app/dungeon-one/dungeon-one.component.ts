@@ -3,6 +3,7 @@ import { Weapon } from '../weapon';
 import { Hero } from '../hero';
 import { MonsterService } from '../monster.service';
 import { Monsters } from '../monsters/monsters';
+import { Item } from '../items/item';
 
 @Component({
   selector: 'app-dungeon-one',
@@ -25,6 +26,11 @@ export class DungeonOneComponent implements OnInit {
   // pocket
   pocketState: boolean
   nextDungeon: boolean
+  //potions
+  potionUsed: boolean
+  potionConsumed: Item
+
+  actionTaken: boolean
 
   constructor(
     private monsterService: MonsterService
@@ -65,6 +71,18 @@ export class DungeonOneComponent implements OnInit {
   continueToNextDungeon(advance: boolean){
     this.nextDungeon = advance
     this.openStore = false
+  }
+
+  potionHasBeenUsed(used: boolean){
+    this.potionUsed = used
+  }
+
+  exactPotionUsed(itemUsed: Item){
+    this.potionConsumed = itemUsed
+  }
+
+  actionTakenEvent(action: boolean){
+    this.actionTaken = action
   }
 
 }

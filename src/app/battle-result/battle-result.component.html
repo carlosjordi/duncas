@@ -2,6 +2,7 @@
     <div *ngIf="heroWon">
         <p>{{hero.name.toUpperCase()}} ha derrotado al {{monster.type}}</p>
         <p>Has obtenido {{monster.experience}} de experiencia y {{monster.gold}} de oro.</p>
+        <p *ngIf="monster.item">Encontraste una {{monster.item.name}} entre los escombros</p>
 
         <div class="container" *ngIf="levelUp">
             <label>Felicidades! Subiste a nivel {{hero.level}}!</label>

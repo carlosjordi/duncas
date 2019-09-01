@@ -3,6 +3,7 @@ import { Hero } from '../hero';
 import { Weapon } from '../weapon';
 import { Monsters } from '../monsters/monsters';
 import { MonsterService } from '../monster.service';
+import { Item } from '../items/item';
 
 @Component({
   selector: 'app-dungeon-two',
@@ -27,6 +28,11 @@ export class DungeonTwoComponent implements OnInit {
   // pocket
   pocketState: boolean
   nextDungeon: boolean
+  //potions
+  potionUsed: boolean
+  potionConsumed: Item
+
+  actionTaken: boolean
 
   constructor(
     private monsterService: MonsterService
@@ -67,6 +73,18 @@ export class DungeonTwoComponent implements OnInit {
   continueToNextDungeon(advance: boolean){
     this.nextDungeon = advance
     this.openStore = false
+  }
+  
+  potionHasBeenUsed(used: boolean){
+    this.potionUsed = used
+  }
+
+  exactPotionUsed(itemUsed: Item){
+    this.potionConsumed = itemUsed
+  }
+
+  actionTakenEvent(action: boolean){
+    this.actionTaken = action
   }
 
 }
