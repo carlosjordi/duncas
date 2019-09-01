@@ -2,7 +2,7 @@ import { Item } from './items/item';
 
 export class Hero{
     name: string = ''
-    hp: number = 2
+    hp: number = 3
     strength: number = 1
     dexterity: number = 1
     perception: number = 1

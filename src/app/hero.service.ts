@@ -3,6 +3,7 @@ import { Hero } from './hero';
 import { Monsters } from './monsters/monsters';
 import { Weapon } from './weapon';
 import { Item } from './items/item';
+import { HERO_LEVELS } from './levels/hero-levels';
 
 @Injectable({
   providedIn: 'root'
@@ -10,6 +11,7 @@ import { Item } from './items/item';
 export class HeroService {
 
   hero: Hero = new Hero
+  levels = HERO_LEVELS
 
   constructor() { }
 
@@ -24,8 +26,8 @@ export class HeroService {
     }
   }
 
-  strengthDown(): void{
-    if (this.hero.strength > 1){
+  strengthDown(minimumStat: number): void{
+    if (this.hero.strength > minimumStat){
       this.hero.strength -= 1
       this.increasePoints()
     }
@@ -38,8 +40,8 @@ export class HeroService {
     }
   }
 
-  dexterityDown(): void{
-    if (this.hero.dexterity > 1){
+  dexterityDown(minimumStat: number): void{
+    if (this.hero.dexterity > minimumStat){
       this.hero.dexterity -= 1
       this.increasePoints()
     }
@@ -52,8 +54,8 @@ export class HeroService {
     }
   }
 
-  perceptionDown(): void{
-    if (this.hero.perception > 1){
+  perceptionDown(minimumStat: number): void{
+    if (this.hero.perception > minimumStat){
       this.hero.perception -= 1
       this.increasePoints()
     }
@@ -66,19 +68,19 @@ export class HeroService {
     }
   }
 
-  hpDown(): void{
-    if (this.hero.hp > 2){
+  hpDown(minimumStat: number): void{
+    if (this.hero.hp > minimumStat){
       this.hero.hp -= 1
       this.increasePoints()
     }
   }
 
   hitpoints(): void {
-    this.hero.hitpoints = this.hero.hp * 4 + this.hero.strength * 2 + 10
+    this.hero.hitpoints = this.hero.hp * 5 + this.hero.strength * 2 + 3
   }
 
   maxHp(): number{
-    return this.hero.maxHp = this.hero.hp * 4 + this.hero.strength * 2 + 10;
+    return this.hero.maxHp = this.hero.hp * 5 + this.hero.strength * 2 + 3;
   }
 
   decreasePoints(): void {
@@ -206,4 +208,29 @@ export class HeroService {
   checkIfHeroDied(){
     return this.hero.hitpoints <= 0
   }
+
+  // leveling up
+
+  increaseHeroLevel()
+  {
+    this.givePointsForLevelUp()
+    this.levelUp()
+  }
+
+  checkIfLevelUp(): boolean{
+    for (let i = 0; i < this.levels.length; i++){
+      if (this.hero.level == this.levels[i].level)
+        if (this.hero.experience >= this.levels[i+1].experience)
+          return true;
+    }
+  }
+
+  private givePointsForLevelUp(){
+    this.hero.points += 2
+  }
+
+  private levelUp(){
+    this.hero.level += 1
+  }
+
 }

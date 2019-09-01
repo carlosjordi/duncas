@@ -11,4 +11,5 @@ export class Skeleton extends Monsters{
     maximunDamage = 3;
     experience = 100;
     gold = 50;
+    item = null
 }

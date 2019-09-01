@@ -78,6 +78,10 @@ export class HeroOverviewComponent implements OnInit {
     }
 
     // monster part
+    this.monsterAttack()
+  }
+
+  monsterAttack(){
     if (this.monsterService.monsterAttack(this.monster, this.hero)) {
       this.damage = this.monsterService.monsterDamage(this.monster)
       this.message = `${this.monster.type} acierta y realiza ${this.damage} de daño`

@@ -2,6 +2,45 @@
     <div *ngIf="heroWon">
         <p>{{hero.name.toUpperCase()}} ha derrotado al {{monster.type}}</p>
         <p>Has obtenido {{monster.experience}} de experiencia y {{monster.gold}} de oro.</p>
+
+        <div class="container" *ngIf="levelUp">
+            <label>Felicidades! Subiste a nivel {{hero.level}}!</label>
+            <label>Tienes <span class="points">{{hero.points}}</span> puntos para repartir</label>
+            <label>Vida: {{hero.hitpoints}}</label>
+
+            <div class="stat">
+                <label>Puntos de Salud: {{hero.hp}}</label>
+                <div class="buttons">
+                    <button class="button-dungeon small" (click)="hpUp()">+</button>
+                    <button class="button-dungeon small ml5" (click)="hpDown()">-</button>
+                </div>
+            </div>
+
+            <div class="stat">
+                <label>Fuerza: {{hero.strength}}</label>
+                <div class="buttons">
+                    <button class="button-dungeon small" (click)="strengthUp()">+</button>
+                    <button class="button-dungeon small ml5" (click)="strengthDown()">-</button>
+                </div>
+            </div>
+
+            <div class="stat">
+                <label>Destreza: {{hero.dexterity}}</label>
+                <div class="buttons">
+                    <button class="button-dungeon small" (click)="dexterityUp()">+</button>
+                    <button class="button-dungeon small ml5" (click)="dexterityDown()">-</button>
+                </div>
+            </div>
+
+            <div class="stat">
+                <label>Percepci&oacute;n: {{hero.perception}}</label>
+                <div class="buttons">
+                    <button class="button-dungeon small" (click)="perceptionUp()">+</button>
+                    <button class="button-dungeon small ml5" (click)="perceptionDown()">-</button>
+                </div>
+            </div>
+        </div>
+
         <button class="button-dungeon p5" (click)="continueToNextDungeon()">Continuar</button>
     </div>
 

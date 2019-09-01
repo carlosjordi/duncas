@@ -9,9 +9,15 @@ import { HeroService } from '../hero.service';
 })
 export class HeroCreationComponent implements OnInit {
 
-  hero: Hero
+  hero: Hero = new Hero
   message: string = ''
   created: boolean = false
+
+  // minimun stats
+  MIN_HP = this.hero.hp
+  MIN_STRENGTH = this.hero.strength
+  MIN_DEXTERITY = this.hero.dexterity
+  MIN_PERCEPTION = this.hero.perception
 
   constructor(
     private heroService: HeroService
@@ -34,7 +40,7 @@ export class HeroCreationComponent implements OnInit {
   }
 
   strengthDown(){
-    this.heroService.strengthDown()
+    this.heroService.strengthDown(this.MIN_STRENGTH)
     this.getHitpoints()
   }
 
@@ -43,7 +49,7 @@ export class HeroCreationComponent implements OnInit {
   }
 
   dexterityDown(){
-    this.heroService.dexterityDown()
+    this.heroService.dexterityDown(this.MIN_DEXTERITY)
   }
 
   perceptionUp(){
@@ -51,7 +57,7 @@ export class HeroCreationComponent implements OnInit {
   }
 
   perceptionDown(){
-    this.heroService.perceptionDown()
+    this.heroService.perceptionDown(this.MIN_PERCEPTION)
   }
 
   hpUp(){
@@ -60,7 +66,7 @@ export class HeroCreationComponent implements OnInit {
   }
 
   hpDown(){
-    this.heroService.hpDown()
+    this.heroService.hpDown(this.MIN_HP)
     this.getHitpoints()
   }
 

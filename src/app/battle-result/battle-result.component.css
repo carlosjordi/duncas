@@ -5,3 +5,45 @@
 .before-restart{
     margin-bottom: 10px;
 }
+
+.container{
+    width: 260px;
+    display: flex;
+    flex-flow: column wrap;
+    margin: 0 auto;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid hsl(21, 23%, 25%);
+    padding: 10px;
+}
+
+.stat{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.button-dungeon:hover{
+    background-color: hsl(21, 43%, 25%);
+}
+
+.small{
+    width: 22px;
+}
+
+.ml5{
+    margin-left: 5px;
+}
+
+.points{
+    font-weight: 900;
+    color: hsl(21, 23%, 25%);
+}
+
+input{
+    border: none;
+    border-bottom: 1px solid #000;
+    outline: none;
+}

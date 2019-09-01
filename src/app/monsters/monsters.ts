@@ -1,3 +1,5 @@
+import { Item } from '../items/item';
+
 export class Monsters{
 
     id: number
@@ -10,4 +12,5 @@ export class Monsters{
     maximunDamage: number
     experience: number
     gold: number
+    item: Item
 }

@@ -1,4 +1,5 @@
 import { Monsters } from './monsters';
+import { BigPotion } from '../items/bigPotion';
 
 export class Darknight extends Monsters{
 
@@ -11,4 +12,5 @@ export class Darknight extends Monsters{
     maximunDamage = 10;
     experience = 220;
     gold = 170;
+    item = new BigPotion
 }
