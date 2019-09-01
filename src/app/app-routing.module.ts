@@ -1,10 +1,13 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { HeroCreationComponent } from './hero-creation/hero-creation.component';
+import { BasicsComponent } from './basics/basics.component';
 
 
 const routes: Routes = [
-  {path: '', component: HeroCreationComponent}
+  {path:'', redirectTo:'basics', pathMatch:'full'},
+  {path:'basics', component: BasicsComponent},
+  {path:'adventure', component: HeroCreationComponent}
 ];
 
 @NgModule({
