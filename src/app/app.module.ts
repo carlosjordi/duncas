@@ -17,6 +17,8 @@ import { StoreComponent } from './store/store.component';
 import { DungeonThreeComponent } from './dungeon-three/dungeon-three.component';
 import { ThanksComponent } from './thanks/thanks.component';
 import { BasicsComponent } from './basics/basics.component';
+import { VersionComponent } from './version/version.component';
+import { V2Component } from './v2/v2.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +35,9 @@ import { BasicsComponent } from './basics/basics.component';
     StoreComponent,
     DungeonThreeComponent,
     ThanksComponent,
-    BasicsComponent
+    BasicsComponent,
+    VersionComponent,
+    V2Component
   ],
   imports: [
     BrowserModule,

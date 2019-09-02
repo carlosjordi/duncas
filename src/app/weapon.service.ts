@@ -10,10 +10,10 @@ import { Hero } from './hero';
 })
 export class WeaponService {
 
-  private BLEEDING_CHANCE = 20 // sword
+  private BLEEDING_CHANCE = 35 // sword
   private BLEEDING_DAMAGE = 50
-  private HEADSHOT_CHANCE = 5 // bow
-  private MISSING_CHANCE = 10 // spear
+  private HEADSHOT_CHANCE = 15 // bow
+  private MISSING_CHANCE = 15 // spear
 
   constructor() { }
 

@@ -32,7 +32,7 @@ export class DungeonThreeComponent implements OnInit {
   potionUsed: boolean
   potionConsumed: Item
 
-  actionTaken: boolean
+  actionTaken: boolean = false
 
   constructor(
     private monsterService: MonsterService

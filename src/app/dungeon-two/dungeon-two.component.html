@@ -18,7 +18,10 @@
         *ngIf="!heroWon && !monsterWon">
     </app-hero-overview>
 
-    <app-pocket [hero]="hero" (potionUsedEmitter)="potionHasBeenUsed($event)" (itemUsedEmitter)="exactPotionUsed($event)" *ngIf="pocketState"></app-pocket>
+    <app-pocket [hero]="hero" [monster]="monster" (potionUsedEmitter)="potionHasBeenUsed($event)" 
+    (monsterMessageEmmiter)="receiveMonsterMessage($event)" (heroMessageEmmiter)="receiveMessage($event)"
+    (monsterWonEmitter)="monsterWonShowResult($event)" (actionTakenEmitter)="actionTakenEvent($event)"
+    (itemUsedEmitter)="exactPotionUsed($event)" *ngIf="pocketState"></app-pocket>
 
     <app-battle-overview [heroMessage]="heroMessage" *ngIf="actionTaken" [monsterMessage]="monsterMessage"
         [heroWon]="heroWon" [monsterWon]="monsterWon">

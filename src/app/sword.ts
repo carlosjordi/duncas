@@ -3,9 +3,9 @@ import { Weapon } from './weapon';
 export class Sword extends Weapon{
 
     type = 'Espada'
-    damage = '2-7'
+    damage = '2-8'
     minimumDamage: number = 2
-    maximumDamage: number = 7
+    maximumDamage: number = 8
     skill: string = 'Corte'
-    description: string = 'Causa daño adicional al herir gravemente al enemigo'
+    description: string = '35% chance causar 50% daño extra'
 }

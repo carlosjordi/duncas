@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output, EventEmitter, OnChanges } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, OnChanges, AfterViewChecked } from '@angular/core';
 import { Hero } from '../hero';
 import { Weapon } from '../weapon';
 import { HeroService } from '../hero.service';
@@ -12,7 +12,7 @@ import { Item } from '../items/item';
   templateUrl: './hero-overview.component.html',
   styleUrls: ['./hero-overview.component.css']
 })
-export class HeroOverviewComponent implements OnInit, OnChanges {
+export class HeroOverviewComponent implements OnInit {
 
   @Input() hero: Hero
   @Input() monster: Monsters
@@ -42,20 +42,8 @@ export class HeroOverviewComponent implements OnInit, OnChanges {
     
   }
 
-  ngOnChanges(){
-    if (this.potionUsed)
-      this.potionTurn()
-  }
-
   actionTaken(){
     this.actionTakenEmitter.emit(true)
-  }
-
-  potionTurn(){
-    this.actionTaken()
-    this.emmitHeroMessage(`${this.hero.name} usa una ${this.potionConsumed.name} y se cura ${this.potionConsumed.effect * this.heroService.maxHp()} de salud`)
-    this.monsterAttack()
-    this.potionUsed = false
   }
 
   heroAttack(hero: Hero, weapon: Weapon): void {
