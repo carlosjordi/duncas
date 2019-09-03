@@ -19,6 +19,9 @@ import { ThanksComponent } from './thanks/thanks.component';
 import { BasicsComponent } from './basics/basics.component';
 import { VersionComponent } from './version/version.component';
 import { V2Component } from './v2/v2.component';
+import { DungeonFourComponent } from './dungeon-four/dungeon-four.component';
+import { DungeonFiveComponent } from './dungeon-five/dungeon-five.component';
+import { DungeonSixComponent } from './dungeon-six/dungeon-six.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +40,10 @@ import { V2Component } from './v2/v2.component';
     ThanksComponent,
     BasicsComponent,
     VersionComponent,
-    V2Component
+    V2Component,
+    DungeonFourComponent,
+    DungeonFiveComponent,
+    DungeonSixComponent
   ],
   imports: [
     BrowserModule,

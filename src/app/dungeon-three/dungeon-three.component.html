@@ -1,16 +1,13 @@
 <div *ngIf="!nextStore">
 
     <div class="text-center mrl5">
-        <p class="blue medium">El cuerpo del ogro ahora yace en medio del camino, pero poco te importa eso, lo
-            &uacute;nico que te interesa es encontrar a tu compa&ntilde;ero</p>
-        <p class="green regular">Despu&eacute;s de caminar en l&iacute;nea recta durante 10 minutos observas
-            a un guerrero sentado en las escaleras</p>
-        <p class="narrative small">{{hero.name}}: Buenas, este camino lleva al castillo, cierto ?</p>
-        <p class="green regular">Sin decir palabra alguna, se levanta y saca su espada</p>
-        <p class="narrative small">{{hero.name}}: A decir verdad, preferir&iacute;a no hacer esto.
-            Estoy cansado, sabes ?</p>
-        <p class="narrative small">Caballero Oscuro: Nunca antes un forastero hab&iacute;a llegado hasta aqu&iacute;.
-            Est&aacute; de m&aacute;s decir que de aqu&iacute; no pasas</p>
+        <p class="blue medium">Tu aventura se topa con una enorme puerta resguardada por un escudero</p>
+        <p class="green regular">Te hace señales para que des media vuelta</p>
+        <p class="narrative small">{{monster.type}}: Media vuelta, forastero</p>
+        <p class="narrative small">{{hero.name}}: Solo necesito cruzar, de saber que estar&iacute;a 
+            resguardado hubiese tomado el otro camino</p>
+        <p class="narrative small">{{monster.type}}: Si no es por las buenas, entonces yo mismo me encargar&eacute;</p>
+        <p class="narrative small">{{hero.name}}: Todo parece indicar que no ser&aacute; por las buenas</p>
     </div>
 
     <app-hero-overview [hero]="hero" [monster]="monster" [weapon]="weapon" (heroMessageEmmiter)="receiveMessage($event)"
@@ -39,4 +36,4 @@
 <app-store [hero]="hero" [weapon]="weapon" *ngIf="nextStore && openStore"
     (nextDungeonEmitter)="continueToNextDungeon($event)"></app-store>
 
-<app-thanks *ngIf="nextDungeon"></app-thanks>
+<app-dungeon-four [hero]="hero" [weapon]="weapon" *ngIf="nextDungeon"></app-dungeon-four>

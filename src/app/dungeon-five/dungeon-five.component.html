@@ -1,13 +1,14 @@
 <div *ngIf="!nextStore">
 
     <div class="text-center mrl5">
-        <p class="blue medium">Tras derrotar al rebelde y conversar con el T&iacute;o Bigotes prosigues tu
-            camino rumbo al castillo de Duncas. Para asombro tuyo el camino est&aacute; repleto de cad&aacute;veres</p>
-        <p class="narrative small">{{hero.name}}: Veo que no soy el primero en intentar cruzar este lugar</p>
-        <p class="blue regular">Sientes como sujetan tus pies y usas tu {{weapon.type}} para liberarte</p>
-        <p class="green regular">Un esqueleto se levanta de entre el mont&oacute;n</p>
-        <p class="narrative small">{{hero.name}}: Pero que carajo es esto !?</p>
-        <p class="narrative small">{{monster.type}}: Arhg!</p>
+        <p class="blue medium">Tras derrotar al grandul&oacute;n puedes ver la entrada al castillo</p>
+        <p class="narrative small">{{hero.name}}: Bien! ya queda poco, voy a por ti F...</p>
+        <p class="green regular">Un chillido te desgarra los o&iacute;dos, pero a tu alrededor no hay nadie</p>
+        <p class="narrative small">{{hero.name}}: Aahh!! De d&oacute;nde proviene ese ruido?</p>
+        <p class="green regular">Notas como una sombra cubre la tuya y se hace cada vez m&aacute;s grande</p>
+        <p class="narrative small">{{hero.name}}: Mierda! Arriba!</p>
+        <p class="green regular">Giras a tiempo a un lado, con lo cu&aacute;l esquivas el embiste de esa criatura</p>
+        <p class="narrative small">{{hero.name}}: Y pens&eacute; que el anterior era raro</p>
     </div>
 
     <app-hero-overview [hero]="hero" [monster]="monster" [weapon]="weapon" (heroMessageEmmiter)="receiveMessage($event)"
@@ -35,4 +36,4 @@
 <app-store [hero]="hero" [weapon]="weapon" *ngIf="nextStore && openStore"
     (nextDungeonEmitter)="continueToNextDungeon($event)"></app-store>
 
-<app-dungeon-three [hero]="hero" [weapon]="weapon" *ngIf="nextDungeon"></app-dungeon-three>
+<app-dungeon-six [hero]="hero" [weapon]="weapon" *ngIf="nextDungeon"></app-dungeon-six>

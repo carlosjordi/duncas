@@ -1,16 +1,16 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { Item } from '../items/item';
+import { MonsterService } from '../monster.service';
 import { Hero } from '../hero';
 import { Weapon } from '../weapon';
 import { Monsters } from '../monsters/monsters';
-import { MonsterService } from '../monster.service';
-import { Item } from '../items/item';
 
 @Component({
-  selector: 'app-dungeon-three',
-  templateUrl: './dungeon-three.component.html',
-  styleUrls: ['./dungeon-three.component.css']
+  selector: 'app-dungeon-four',
+  templateUrl: './dungeon-four.component.html',
+  styleUrls: ['./dungeon-four.component.css']
 })
-export class DungeonThreeComponent implements OnInit {
+export class DungeonFourComponent implements OnInit {
 
   @Input() hero: Hero
   @Input() weapon: Weapon
@@ -43,7 +43,7 @@ export class DungeonThreeComponent implements OnInit {
   }
 
   getMonster(){
-    this.monster = this.monsterService.generateSquire()
+    this.monster = this.monsterService.generateOgre()
   }
 
   receiveMessage(message: string){

@@ -1,13 +1,18 @@
 <div *ngIf="!nextStore">
 
     <div class="text-center mrl5">
-        <p class="blue medium">Tras derrotar al rebelde y conversar con el T&iacute;o Bigotes prosigues tu
-            camino rumbo al castillo de Duncas. Para asombro tuyo el camino est&aacute; repleto de cad&aacute;veres</p>
-        <p class="narrative small">{{hero.name}}: Veo que no soy el primero en intentar cruzar este lugar</p>
-        <p class="blue regular">Sientes como sujetan tus pies y usas tu {{weapon.type}} para liberarte</p>
-        <p class="green regular">Un esqueleto se levanta de entre el mont&oacute;n</p>
-        <p class="narrative small">{{hero.name}}: Pero que carajo es esto !?</p>
-        <p class="narrative small">{{monster.type}}: Arhg!</p>
+        <p class="blue medium">Tanto el cuerpo del ogro y el pajarraco yacen en el piso, pero 
+            la entrada al castillo está a solo unos pasos, as&iacute; que no te interesa revisar sus cuerpos</p>
+        <p class="narrative small">{{hero.name}}: Al fin en la entrada, descansar&eacute; un rato aqu&iacute;. 
+            Ya nada puede pasar</p>
+        <p class="green regular">Te quedas dormido durante apr&oacute;ximadamente una hora y empiezas a 
+            sentir que te caen piedras en la cabeza</p>
+        <p class="narrative small">{{hero.name}}: Qu&eacute; ? De d&oacute;nde caen estas piedras si no hay nadie</p>
+        <p class="green regular">La estatua donde te recostabas empieza a moverse</p>
+        <p class="narrative small">{{hero.name}}: No me jodas!</p>
+        <p class="narrative small">{{monster.type}}: Humano! como te atreves a recostarte en un ser como yo.</p>
+        <p class="narrative small">{{hero.name}}: No se supone que las estatuas hablen</p>
+        <p class="narrative small">{{monster.type}}: El que yo hable no deber&iacute;a ser tu mayor preocupaci&oacute;n.</p>
     </div>
 
     <app-hero-overview [hero]="hero" [monster]="monster" [weapon]="weapon" (heroMessageEmmiter)="receiveMessage($event)"
@@ -35,4 +40,4 @@
 <app-store [hero]="hero" [weapon]="weapon" *ngIf="nextStore && openStore"
     (nextDungeonEmitter)="continueToNextDungeon($event)"></app-store>
 
-<app-dungeon-three [hero]="hero" [weapon]="weapon" *ngIf="nextDungeon"></app-dungeon-three>
+<app-thanks *ngIf="nextDungeon"></app-thanks>

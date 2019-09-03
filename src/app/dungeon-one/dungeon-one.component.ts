@@ -37,11 +37,11 @@ export class DungeonOneComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.getSkeleton()
+    this.getMonster()
   }
 
-  getSkeleton(){
-    this.monster = this.monsterService.generateSkeleton()
+  getMonster(){
+    this.monster = this.monsterService.generateRebeld()
   }
 
   receiveMessage(message: string){

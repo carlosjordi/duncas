@@ -1,13 +1,12 @@
 <div *ngIf="!nextStore">
 
     <div class="text-center mrl5">
-        <p class="blue medium">Tras derrotar al rebelde y conversar con el T&iacute;o Bigotes prosigues tu
-            camino rumbo al castillo de Duncas. Para asombro tuyo el camino est&aacute; repleto de cad&aacute;veres</p>
-        <p class="narrative small">{{hero.name}}: Veo que no soy el primero en intentar cruzar este lugar</p>
-        <p class="blue regular">Sientes como sujetan tus pies y usas tu {{weapon.type}} para liberarte</p>
-        <p class="green regular">Un esqueleto se levanta de entre el mont&oacute;n</p>
-        <p class="narrative small">{{hero.name}}: Pero que carajo es esto !?</p>
-        <p class="narrative small">{{monster.type}}: Arhg!</p>
+        <p class="blue medium">Ya solo te queda cruzar el port&oacute;n delante, pero el suelo comienza a temblar</p>
+        <p class="narrative small">{{hero.name}}: Un temblor ? No! Un terremoto!</p>
+        <p class="green regular">Repentinamente el port&oacute;n se derrumba ante ti, logras reaccionar a tiempo y lo esquivas</p>
+        <p class="green regular">Tus ojos no creen lo que ves salir del agujero. Un enorme monstruo dirige su mirada
+            hac&iacute;a ti</p>
+        <p class="narrative small">{{monster.type}}: Jomicda!</p>
     </div>
 
     <app-hero-overview [hero]="hero" [monster]="monster" [weapon]="weapon" (heroMessageEmmiter)="receiveMessage($event)"
@@ -35,4 +34,4 @@
 <app-store [hero]="hero" [weapon]="weapon" *ngIf="nextStore && openStore"
     (nextDungeonEmitter)="continueToNextDungeon($event)"></app-store>
 
-<app-dungeon-three [hero]="hero" [weapon]="weapon" *ngIf="nextDungeon"></app-dungeon-three>
+<app-dungeon-five [hero]="hero" [weapon]="weapon" *ngIf="nextDungeon"></app-dungeon-five>

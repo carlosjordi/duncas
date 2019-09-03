@@ -1,0 +1,21 @@
+.term{
+    background-color: #804000;
+    color: #fff;
+    font-weight: 800;
+    margin-left: 12px;
+    margin-right: 12px;
+    margin-bottom: 6px;
+    padding: 6px;
+    cursor: pointer;
+    text-align: center;
+    border: 1px solid #800000;
+}
+
+.definition{
+    margin-left: 26px;
+    margin-right: 26px;
+    padding: 3px;
+    margin-top: 3px;
+    margin-bottom: 3px;
+    border: 1px solid #ccc;
+}

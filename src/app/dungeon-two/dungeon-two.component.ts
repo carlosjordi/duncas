@@ -39,11 +39,11 @@ export class DungeonTwoComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.getOgre()
+    this.getMonster()
   }
 
-  getOgre(){
-    this.monster = this.monsterService.generateOgre()
+  getMonster(){
+    this.monster = this.monsterService.generateSkeleton()
   }
 
   receiveMessage(message: string){
