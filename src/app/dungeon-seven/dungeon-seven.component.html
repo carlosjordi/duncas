@@ -1,18 +1,15 @@
 <div *ngIf="!nextStore">
 
     <div class="text-center mrl5">
-        <p class="blue medium">Tanto el cuerpo del ogro y el pajarraco yacen en el piso, pero 
-            la entrada al castillo está a solo unos pasos, as&iacute; que no te interesa revisar sus cuerpos</p>
-        <p class="narrative small">{{hero.name}}: Al fin en la entrada, descansar&eacute; un rato aqu&iacute;. 
-            Ya nada puede pasar</p>
-        <p class="green regular">Te quedas dormido durante apr&oacute;ximadamente una hora y empiezas a 
-            sentir que te caen piedras en la cabeza</p>
-        <p class="narrative small">{{hero.name}}: Qu&eacute; ? De d&oacute;nde caen estas piedras si no hay nadie</p>
-        <p class="green regular">La estatua donde te recostabas empieza a moverse</p>
-        <p class="narrative small">{{hero.name}}: No me jodas!</p>
-        <p class="narrative small">{{monster.type}}: Humano! como te atreves a recostarte en un ser como yo.</p>
-        <p class="narrative small">{{hero.name}}: No se supone que las estatuas hablen</p>
-        <p class="narrative small">{{monster.type}}: El que yo hable no deber&iacute;a ser tu mayor preocupaci&oacute;n.</p>
+        <p class="blue medium">Finalmente ingresas al castillo, est&aacute;s seguro de que tu compa&ntilde;ero a&uacute;n est&aacute; a salvo</p>
+        <p class="narrative small">{{hero.name}}: Ok, creo que debo dirigirme hac&iacute;a los pisos superiores</p>
+        <p class="green regular">Un barrera de fuego aparece frente a ti</p>
+        <p class="narrative small">{{hero.name}}: Pero y ahora que ?</p>
+        <p class="green regular">La barrera se extiende a tu alrededor y te deja encerrado junto con...</p>
+        <p class="narrative small">{{monster.type}}: Incre&iacute;ble que hayas derrotado a mis peque&ntilde;os, pero tu suerte se termino.</p>
+        <p class="narrative small">{{hero.name}}: Cu&aacute;ntos m&aacute;s de uds aparecer&aacute;n a retrasarme</p>
+        <p class="narrative small">{{monster.type}}: No te preocupes por eso, soy el &uacute;ltimo que ver&aacute;s.
+        </p>
     </div>
 
     <app-hero-overview [hero]="hero" [monster]="monster" [weapon]="weapon" (heroMessageEmmiter)="receiveMessage($event)"
@@ -40,4 +37,4 @@
 <app-store [hero]="hero" [weapon]="weapon" *ngIf="nextStore && openStore"
     (nextDungeonEmitter)="continueToNextDungeon($event)"></app-store>
 
-<app-dungeon-seven [hero]="hero" [weapon]="weapon" *ngIf="nextDungeon"></app-dungeon-seven>
+<app-thanks *ngIf="nextDungeon"></app-thanks>

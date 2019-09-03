@@ -22,6 +22,7 @@ import { V2Component } from './v2/v2.component';
 import { DungeonFourComponent } from './dungeon-four/dungeon-four.component';
 import { DungeonFiveComponent } from './dungeon-five/dungeon-five.component';
 import { DungeonSixComponent } from './dungeon-six/dungeon-six.component';
+import { DungeonSevenComponent } from './dungeon-seven/dungeon-seven.component';
 
 @NgModule({
   declarations: [
@@ -43,7 +44,8 @@ import { DungeonSixComponent } from './dungeon-six/dungeon-six.component';
     V2Component,
     DungeonFourComponent,
     DungeonFiveComponent,
-    DungeonSixComponent
+    DungeonSixComponent,
+    DungeonSevenComponent
   ],
   imports: [
     BrowserModule,

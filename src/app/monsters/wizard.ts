@@ -8,7 +8,7 @@ export class Wizard extends Monsters{
     dexterity = 10;
     perception = 3;
     hp = 50;
-    minimunDamage = 8;
+    minimunDamage = 10;
     maximunDamage = 15;
     experience = 450;
     gold = 200;
