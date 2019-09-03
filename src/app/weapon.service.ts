@@ -10,7 +10,7 @@ import { Hero } from './hero';
 })
 export class WeaponService {
 
-  private BLEEDING_CHANCE = 35 // sword
+  private BLEEDING_CHANCE = 40 // sword
   private BLEEDING_DAMAGE = 50
   private HEADSHOT_CHANCE = 15 // bow
   private MISSING_CHANCE = 15 // spear
@@ -67,7 +67,7 @@ export class WeaponService {
     switch (weapon.type)
     {
       case "Espada":
-        return this.swordSkillEffect(hero)
+        return this.swordSkillEffect(hero, dmg)
       case "Arco":
         return this.bowSkillEffect(dmg)
       case "Lanza":
@@ -75,8 +75,8 @@ export class WeaponService {
     }
   }
 
-  private swordSkillEffect(hero: Hero){
-    return hero.strength * this.BLEEDING_DAMAGE / 100
+  private swordSkillEffect(hero: Hero, dmg: number){
+    return (dmg + hero.strength) * this.BLEEDING_DAMAGE / 100
   }
 
   private bowSkillEffect(dmg: number){

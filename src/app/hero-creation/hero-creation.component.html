@@ -1,54 +1,62 @@
-<div class="container" *ngIf="!created">
-
-    <p>Crea tu personaje</p>
-
-    <div>
-        <label>Nombre: </label>
-        <input type="text" [(ngModel)]="hero.name">
+<div *ngIf="!created">
+    
+    <div class="links">
+        <a routerLink="/version">Notas de Versi&oacute;n</a>
+        <a routerLink="/basics">Bases</a>
+        <a routerLink="/adventure">Aventura</a>
     </div>
 
-    <label>Tienes <span class="points">{{hero.points}}</span> puntos para repartir</label>
+    <div class="container">
 
-    <label>Vida: {{hero.hitpoints}}</label>
+        <p>Crea tu personaje</p>
 
-    <div class="stat">
-        <label>Puntos de Salud: {{hero.hp}}</label>
-        <div class="buttons">
-            <button class="button-dungeon small" (click)="hpUp()">+</button>
-            <button class="button-dungeon small ml5" (click)="hpDown()">-</button>
+        <div>
+            <label>Nombre: </label>
+            <input type="text" [(ngModel)]="hero.name">
         </div>
-    </div>
 
-    <div class="stat">
-        <label>Fuerza: {{hero.strength}}</label>
-        <div class="buttons">
-            <button class="button-dungeon small" (click)="strengthUp()">+</button>
-            <button class="button-dungeon small ml5" (click)="strengthDown()">-</button>
+        <label>Tienes <span class="points">{{hero.points}}</span> puntos para repartir</label>
+
+        <label>Vida: {{hero.hitpoints}}</label>
+
+        <div class="stat">
+            <label>Puntos de Salud: {{hero.hp}}</label>
+            <div class="buttons">
+                <button class="button-dungeon small" (click)="hpUp()">+</button>
+                <button class="button-dungeon small ml5" (click)="hpDown()">-</button>
+            </div>
         </div>
-    </div>
 
-    <div class="stat">
-        <label>Destreza: {{hero.dexterity}}</label>
-        <div class="buttons">
-            <button class="button-dungeon small" (click)="dexterityUp()">+</button>
-            <button class="button-dungeon small ml5" (click)="dexterityDown()">-</button>
+        <div class="stat">
+            <label>Fuerza: {{hero.strength}}</label>
+            <div class="buttons">
+                <button class="button-dungeon small" (click)="strengthUp()">+</button>
+                <button class="button-dungeon small ml5" (click)="strengthDown()">-</button>
+            </div>
         </div>
-    </div>
 
-    <div class="stat">
-        <label>Percepci&oacute;n: {{hero.perception}}</label>
-        <div class="buttons">
-            <button class="button-dungeon small" (click)="perceptionUp()">+</button>
-            <button class="button-dungeon small ml5" (click)="perceptionDown()">-</button>
+        <div class="stat">
+            <label>Destreza: {{hero.dexterity}}</label>
+            <div class="buttons">
+                <button class="button-dungeon small" (click)="dexterityUp()">+</button>
+                <button class="button-dungeon small ml5" (click)="dexterityDown()">-</button>
+            </div>
         </div>
+
+        <div class="stat">
+            <label>Percepci&oacute;n: {{hero.perception}}</label>
+            <div class="buttons">
+                <button class="button-dungeon small" (click)="perceptionUp()">+</button>
+                <button class="button-dungeon small ml5" (click)="perceptionDown()">-</button>
+            </div>
+        </div>
+
+        <button class="button-dungeon p5" (click)="confirmHero()">Confirmar!</button>
+
+        <div class="message-alert" *ngIf="message">
+            {{message}}
+        </div>
+
     </div>
-
-    <button class="button-dungeon p5" (click)="confirmHero()">Confirmar!</button>
-
-    <div class="message-alert" *ngIf="message">
-        {{message}}
-    </div>
-
 </div>
-
 <app-weapon-pick [hero]="hero" *ngIf="created"></app-weapon-pick>

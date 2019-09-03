@@ -7,5 +7,5 @@ export class Sword extends Weapon{
     minimumDamage: number = 2
     maximumDamage: number = 8
     skill: string = 'Corte'
-    description: string = '35% chance causar 50% daño extra'
+    description: string = '40% chance causar 50% daño extra'
 }

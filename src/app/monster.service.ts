@@ -4,6 +4,13 @@ import { Skeleton } from './monsters/skeleton';
 import { Ogre } from './monsters/ogre';
 import { Darknight } from './monsters/darknight';
 import { Hero } from './hero';
+import { Rebeld } from './monsters/rebeld';
+import { Squire } from './monsters/squire';
+import { Griffin } from './monsters/griffin';
+import { Gargoyle } from './monsters/gargoyle';
+import { Wizard } from './monsters/wizard';
+import { Ferret } from './monsters/ferret';
+import { Urone } from './monsters/urone';
 
 @Injectable({
   providedIn: 'root'
@@ -18,12 +25,40 @@ export class MonsterService {
     return new Skeleton
   }
 
+  generateRebeld(): Rebeld{
+    return new Rebeld
+  }
+
+  generateSquire(): Squire{
+    return new Squire
+  }
+
   generateOgre(): Ogre{
     return new Ogre
   }
 
+  generateGriffin(): Griffin{
+    return new Griffin
+  }
+
+  generateGargoyle(): Gargoyle{
+    return new Gargoyle
+  }
+
+  generateWizard(): Wizard{
+    return new Wizard
+  }
+
   generateDarknight(): Darknight{
     return new Darknight
+  }
+
+  generateFerret(): Ferret{
+    return new Ferret
+  }
+
+  generateUrone(): Urone{
+    return new Urone
   }
 
   // checka si el monstruo realiza el ataque o falla
@@ -59,7 +94,7 @@ export class MonsterService {
   }
 
   private calculateDamage(min: number, max: number): number{
-    return Math.floor(Math.random() * (max - min)) + min;
+    return Math.floor(Math.random() * ((max+1) - min)) + min;
   }
 
   receiveDamage(monster: Monsters, damageTaken: number): void{
