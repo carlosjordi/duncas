@@ -3,13 +3,11 @@
     <div class="text-center mrl5">
         <p class="blue medium">Despu&eacute;s de tomar un arma del hombre encapuchado sigues rumbo al castillo,
             es cuando recuerdas que se te olvid&oacute; preguntar por el camino m&aacute;s corto, pero visualizas una figura delante.</p>
-
         <p class="green regular">Un ciudadano con mala pinta se cruza en el camino</p>
-
-        <p class="narrative small">{{hero.name}}: Que tal ? Podr&iacute;a decirme si este camino me lleva a Duncas o es mejor ir por la izquierda ?</p>
-        <p class="narrative small">{{monster.type}}: Todos tienen proh&iacute;bido ir a Duncas!</p>
-        <p class="narrative small">{{hero.name}}: No tengo m&aacute;s opci&oacute;n que ir</p>
-        <p class="narrative small">{{monster.type}}: No pasar&aacute;s!!</p>
+        <p class="narrative small"><b>{{hero.name}}</b>: Que tal ? Podr&iacute;a decirme si este camino me lleva a Duncas o es mejor ir por la izquierda ?</p>
+        <p class="narrative small"><b>{{monster.type}}</b>: Todos tienen proh&iacute;bido ir a Duncas!</p>
+        <p class="narrative small"><b>{{hero.name}}</b>: No tengo m&aacute;s opci&oacute;n que ir</p>
+        <p class="narrative small"><b>{{monster.type}}</b>: No pasar&aacute;s!!</p>
     </div>
 
     <app-hero-overview [hero]="hero" [monster]="monster" [weapon]="weapon" (heroMessageEmmiter)="receiveMessage($event)"
@@ -20,7 +18,10 @@
         *ngIf="!heroWon && !monsterWon">
     </app-hero-overview>
 
-    <app-pocket [hero]="hero" (potionUsedEmitter)="potionHasBeenUsed($event)" (itemUsedEmitter)="exactPotionUsed($event)" *ngIf="pocketState"></app-pocket>
+    <app-pocket [hero]="hero" [monster]="monster" (potionUsedEmitter)="potionHasBeenUsed($event)"
+        (monsterMessageEmmiter)="receiveMonsterMessage($event)" (heroMessageEmmiter)="receiveMessage($event)"
+        (monsterWonEmitter)="monsterWonShowResult($event)" (actionTakenEmitter)="actionTakenEvent($event)"
+        (itemUsedEmitter)="exactPotionUsed($event)" *ngIf="pocketState"></app-pocket>
 
     <app-battle-overview [heroMessage]="heroMessage" *ngIf="actionTaken" [monsterMessage]="monsterMessage"
         [heroWon]="heroWon" [monsterWon]="monsterWon">

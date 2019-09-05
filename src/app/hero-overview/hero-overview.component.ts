@@ -39,7 +39,7 @@ export class HeroOverviewComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    
+    this.hero.maxHp = this.heroService.maxHp()
   }
 
   actionTaken(){
@@ -119,7 +119,7 @@ export class HeroOverviewComponent implements OnInit {
   }
 
   private skillEffect() {
-    return this.weaponService.skillEffect(this.weapon, this.hero, this.damage)
+    return this.weaponService.skillEffect(this.weapon, this.damage)
   }
 
   changePocketState() {

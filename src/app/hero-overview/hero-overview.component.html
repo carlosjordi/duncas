@@ -2,16 +2,17 @@
 
     <div class="overview column">
         <h3>{{hero.name}}</h3>
-        <label>Vida: {{hero.hitpoints}}</label>
+        <label>Vida: {{hero.hitpoints}} / {{hero.maxHp}}</label>
         <div>
             <button class="button-dungeon p5" (click)="heroAttack(hero, weapon)">Atacar!</button>
             <button class="button-dungeon p5" (click)="changePocketState()">{{pocketText}}</button>
         </div>
     </div>
 
-    <div class="overview">
+    <div class="overview column">
         <h3>{{monster.type}}</h3>
-        <label>Vida: {{monster.hp}}</label>
+        <label>Vida: {{monster.hp.toFixed(2)}}</label>
+        <label>Da&ntilde;o: {{monster.minimunDamage}} - {{monster.maximunDamage}}</label>
     </div>
 
 </div>

@@ -1,13 +1,21 @@
 <div *ngIf="!nextStore">
 
     <div class="text-center mrl5">
-        <p class="blue medium">Tras derrotar al rebelde y conversar con el T&iacute;o Bigotes prosigues tu
-            camino rumbo al castillo de Duncas. Para asombro tuyo el camino est&aacute; repleto de cad&aacute;veres</p>
-        <p class="narrative small"><b>{{hero.name}}</b>: Veo que no soy el primero en intentar cruzar este lugar</p>
-        <p class="blue regular">Sientes como sujetan tus pies y usas tu {{weapon.type.toLowerCase()}} para liberarte</p>
-        <p class="green regular">Un esqueleto se levanta de entre el mont&oacute;n</p>
-        <p class="narrative small"><b>{{hero.name}}</b>: Pero que carajo es esto !?</p>
-        <p class="narrative small"><b>{{monster.type}}</b>: Arhg!</p>
+        <p class="blue medium">Subes al pen&uacute;ltimo nivel del castillo y un enorme pasillo te depara para llegar al
+            &uacute;ltimo nivel</p>
+        <p class="green regular">Caminas atraves del pasillo, el cual est&aacute; completamente vac&iacute;o</p>
+        <p class="narrative small"><b>{{hero.name}}</b>: Ya me falta poco</p>
+        <p class="green regular">De pronto por las escaleras al &uacute;ltimo nivel baja un guerrero el cu&aacute;l
+            desenvaina su espada</p>
+        <p class="narrative small"><b>{{hero.name}}</b>: No me dejar&aacute;s pasar, cierto ?</p>
+        <p class="narrative small"><b>{{monster.type}}</b>: Que bueno que hayas entendido como funciona esto</p>
+        <p class="narrative small"><b>{{monster.type}}</b>: Dejame decirte que soy la mano derecha del Lord de este castillo,
+            en otras palabras soy quien te separa de &eacute;l y tu peque&ntilde;o amigo</p>
+        <p class="narrative small"><b>{{hero.name}}</b>: No me importa, solo eres un obst&aacute;culo m&aacute;s en mi camino
+        </p>
+        <p class="narrative small"><b>{{monster.type}}</b>: Incluso si me derrotas, cosa que no suceder&aacute;, probablemente
+            ya sea tarde para tu amigo Hajaja!</p>
+        <p class="narrative small"><b>{{hero.name}}</b>: Malditoo!</p>
     </div>
 
     <app-hero-overview [hero]="hero" [monster]="monster" [weapon]="weapon" (heroMessageEmmiter)="receiveMessage($event)"
@@ -35,4 +43,4 @@
 <app-store [hero]="hero" [weapon]="weapon" *ngIf="nextStore && openStore"
     (nextDungeonEmitter)="continueToNextDungeon($event)"></app-store>
 
-<app-dungeon-three [hero]="hero" [weapon]="weapon" *ngIf="nextDungeon"></app-dungeon-three>
+<app-dungeon-ten [hero]="hero" [weapon]="weapon" *ngIf="nextDungeon"></app-dungeon-ten>

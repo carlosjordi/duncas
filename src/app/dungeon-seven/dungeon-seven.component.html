@@ -2,13 +2,13 @@
 
     <div class="text-center mrl5">
         <p class="blue medium">Finalmente ingresas al castillo, est&aacute;s seguro de que tu compa&ntilde;ero a&uacute;n est&aacute; a salvo</p>
-        <p class="narrative small">{{hero.name}}: Ok, creo que debo dirigirme hac&iacute;a los pisos superiores</p>
+        <p class="narrative small"><b>{{hero.name}}</b>: Ok, creo que debo dirigirme hac&iacute;a los pisos superiores</p>
         <p class="green regular">Un barrera de fuego aparece frente a ti</p>
-        <p class="narrative small">{{hero.name}}: Pero y ahora que ?</p>
+        <p class="narrative small"><b>{{hero.name}}</b>: Pero y ahora que ?</p>
         <p class="green regular">La barrera se extiende a tu alrededor y te deja encerrado junto con...</p>
-        <p class="narrative small">{{monster.type}}: Incre&iacute;ble que hayas derrotado a mis peque&ntilde;os, pero tu suerte se termino.</p>
-        <p class="narrative small">{{hero.name}}: Cu&aacute;ntos m&aacute;s de uds aparecer&aacute;n a retrasarme</p>
-        <p class="narrative small">{{monster.type}}: No te preocupes por eso, soy el &uacute;ltimo que ver&aacute;s.
+        <p class="narrative small"><b>{{monster.type}}</b>: Incre&iacute;ble que hayas derrotado a mis peque&ntilde;os, pero tu suerte se termino.</p>
+        <p class="narrative small"><b>{{hero.name}}</b>: Cu&aacute;ntos m&aacute;s de uds aparecer&aacute;n a retrasarme</p>
+        <p class="narrative small"><b>{{monster.type}}</b>: No te preocupes por eso, soy el &uacute;ltimo que ver&aacute;s.
         </p>
     </div>
 
@@ -37,4 +37,4 @@
 <app-store [hero]="hero" [weapon]="weapon" *ngIf="nextStore && openStore"
     (nextDungeonEmitter)="continueToNextDungeon($event)"></app-store>
 
-<app-thanks *ngIf="nextDungeon"></app-thanks>
+<app-dungeon-eight [hero]="hero" [weapon]="weapon" *ngIf="nextDungeon"></app-dungeon-eight>

@@ -1,13 +1,15 @@
 <div *ngIf="!nextStore">
 
     <div class="text-center mrl5">
-        <p class="blue medium">Tras derrotar al rebelde y conversar con el T&iacute;o Bigotes prosigues tu
-            camino rumbo al castillo de Duncas. Para asombro tuyo el camino est&aacute; repleto de cad&aacute;veres</p>
-        <p class="narrative small"><b>{{hero.name}}</b>: Veo que no soy el primero en intentar cruzar este lugar</p>
-        <p class="blue regular">Sientes como sujetan tus pies y usas tu {{weapon.type.toLowerCase()}} para liberarte</p>
-        <p class="green regular">Un esqueleto se levanta de entre el mont&oacute;n</p>
-        <p class="narrative small"><b>{{hero.name}}</b>: Pero que carajo es esto !?</p>
-        <p class="narrative small"><b>{{monster.type}}</b>: Arhg!</p>
+        <p class="blue medium">Se desvaneci&oacute; la muralla de fuego y las escaleras vuelven a quedar disponibles</p>
+        <p class="green regular">Subes las escaleras para llegar al segundo nivel</p>
+        <p class="narrative small">???: Alto ah&iacute;</p>
+        <p class="green regular">Volteas a ver de donde proviene la voz y observas un guerrero sentado</p>
+        <p class="narrative small">???: He de suponer que el hechicero est&aacute; muerto</p>
+        <p class="narrative small">{{hero.name}}: ...</p>
+        <p class="narrative small">???: Ser&iacute;a una verg&uuml;enza para su memoria que te deje pasar</p>
+        <p class="green regular">Se levanta</p>
+        <p class="narrative small">{{monster.type}}: Preparate, esto termino para ti</p>
     </div>
 
     <app-hero-overview [hero]="hero" [monster]="monster" [weapon]="weapon" (heroMessageEmmiter)="receiveMessage($event)"
@@ -32,7 +34,7 @@
 
 </div>
 
-<app-store [hero]="hero" [weapon]="weapon" *ngIf="nextStore && openStore"
-    (nextDungeonEmitter)="continueToNextDungeon($event)"></app-store>
+<!--<app-store [hero]="hero" [weapon]="weapon" *ngIf="nextStore && openStore"
+    (nextDungeonEmitter)="continueToNextDungeon($event)"></app-store>-->
 
-<app-dungeon-three [hero]="hero" [weapon]="weapon" *ngIf="nextDungeon"></app-dungeon-three>
+<app-thanks *ngIf="nextDungeon"></app-thanks>

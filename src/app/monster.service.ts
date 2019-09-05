@@ -65,7 +65,7 @@ export class MonsterService {
   monsterAttack(monster: Monsters, hero: Hero): boolean{
 
     let dexterity = monster.dexterity;
-    let perception = hero.perception;
+    let perception = hero.weapon.type === 'Daga' ? hero.perception * 1.3: hero.perception
     let result = dexterity - perception
 
     let attackChance = this.attackChance(result)

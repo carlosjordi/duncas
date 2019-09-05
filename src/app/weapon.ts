@@ -3,4 +3,5 @@ export class Weapon{
     damage: string
     minimumDamage: number
     maximumDamage: number
+    icon: string
 }

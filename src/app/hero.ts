@@ -1,4 +1,5 @@
 import { Item } from './items/item';
+import { Weapon } from './weapon';
 
 export class Hero{
     name: string = ''
@@ -13,4 +14,6 @@ export class Hero{
     gold: number = 0
     items: Item [] = []
     maxHp: number
+    // 05 - 09 - 19 adding weapon for dagger ability
+    weapon: Weapon
 }

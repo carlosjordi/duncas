@@ -14,6 +14,7 @@ export class WeaponPickComponent implements OnInit {
   sword: Weapon
   bow: Weapon
   spear: Weapon
+  dagger: Weapon
   weapons: Weapon[] = []
   selectedWeapon: Weapon
   weaponPicked: boolean = false
@@ -26,23 +27,31 @@ export class WeaponPickComponent implements OnInit {
     this.putSword()
     this.putBow()
     this.putSpear()
+    this.putDagger()
   }
 
-  putSword(){
+  private putSword(){
     this.sword = this.weaponService.getSword()
     this.weapons.push(this.sword)
   }
 
-  putBow(){
+  private putBow(){
     this.bow = this.weaponService.getBow()
     this.weapons.push(this.bow)
   }
-  putSpear(){
+
+  private putSpear(){
     this.spear = this.weaponService.getSpear()
     this.weapons.push(this.spear)
   }
 
+  private putDagger(){
+    this.dagger= this.weaponService.getDagger()
+    this.weapons.push(this.dagger)
+  }
+
   selectWeapon(weapon: Weapon){
+    this.hero.weapon = weapon
     this.selectedWeapon = weapon
     this.weaponPicked = true
   }

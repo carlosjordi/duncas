@@ -129,7 +129,7 @@ export class HeroService {
   }
 
   private calculateDamage(min: number, max: number, strength: number): number{
-    return Math.floor(Math.random() * ((max+1) - min)) + min + strength;
+    return Math.floor(Math.random() * ((max+1) - min)) + min + (strength * 1.5);
   }
 
   receiveDamage(damageTaken: number): void{

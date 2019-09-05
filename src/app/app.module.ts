@@ -23,6 +23,9 @@ import { DungeonFourComponent } from './dungeon-four/dungeon-four.component';
 import { DungeonFiveComponent } from './dungeon-five/dungeon-five.component';
 import { DungeonSixComponent } from './dungeon-six/dungeon-six.component';
 import { DungeonSevenComponent } from './dungeon-seven/dungeon-seven.component';
+import { DungeonEightComponent } from './dungeon-eight/dungeon-eight.component';
+import { DungeonNineComponent } from './dungeon-nine/dungeon-nine.component';
+import { DungeonTenComponent } from './dungeon-ten/dungeon-ten.component';
 
 @NgModule({
   declarations: [
@@ -45,7 +48,10 @@ import { DungeonSevenComponent } from './dungeon-seven/dungeon-seven.component';
     DungeonFourComponent,
     DungeonFiveComponent,
     DungeonSixComponent,
-    DungeonSevenComponent
+    DungeonSevenComponent,
+    DungeonEightComponent,
+    DungeonNineComponent,
+    DungeonTenComponent
   ],
   imports: [
     BrowserModule,

@@ -3,11 +3,11 @@
     <div class="text-center mrl5">
         <p class="blue medium">Tu aventura se topa con una enorme puerta resguardada por un escudero</p>
         <p class="green regular">Te hace señales para que des media vuelta</p>
-        <p class="narrative small">{{monster.type}}: Media vuelta, forastero</p>
-        <p class="narrative small">{{hero.name}}: Solo necesito cruzar, de saber que estar&iacute;a 
+        <p class="narrative small"><b>{{monster.type}}</b>: Media vuelta, forastero</p>
+        <p class="narrative small"><b>{{hero.name}}</b>: Solo necesito cruzar, de saber que estar&iacute;a 
             resguardado hubiese tomado el otro camino</p>
-        <p class="narrative small">{{monster.type}}: Si no es por las buenas, entonces yo mismo me encargar&eacute;</p>
-        <p class="narrative small">{{hero.name}}: Todo parece indicar que no ser&aacute; por las buenas</p>
+        <p class="narrative small"><b>{{monster.type}}</b>: Si no es por las buenas, entonces yo mismo me encargar&eacute;</p>
+        <p class="narrative small"><b>{{hero.name}}</b>: Todo parece indicar que no ser&aacute; por las buenas</p>
     </div>
 
     <app-hero-overview [hero]="hero" [monster]="monster" [weapon]="weapon" (heroMessageEmmiter)="receiveMessage($event)"
