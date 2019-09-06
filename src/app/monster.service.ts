@@ -65,7 +65,7 @@ export class MonsterService {
   monsterAttack(monster: Monsters, hero: Hero): boolean{
 
     let dexterity = monster.dexterity;
-    let perception = hero.weapon.type === 'Daga' ? hero.perception * 1.3: hero.perception
+    let perception = hero.weapon.type === 'Daga' ? hero.perception * 1.25: hero.perception
     let result = dexterity - perception
 
     let attackChance = this.attackChance(result)
@@ -74,7 +74,7 @@ export class MonsterService {
   }
 
   private attackChance(difference: number): number{
-    return 50 + (difference * 7.5)
+    return 50 + (difference * 6)
   }
 
   private calculateIfAttacked(attackChance: number): boolean{

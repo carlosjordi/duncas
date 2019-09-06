@@ -6,10 +6,10 @@ export class Urone extends Monsters{
     type = 'Lord Urone'
     strength = 7;
     dexterity = 8;
-    perception = 8;
-    hp = 150;
+    perception = 7;
+    hp = 140;
     minimunDamage = 10;
-    maximunDamage = 20;
+    maximunDamage = 18;
     experience = 1000;
     gold = 250;
     item = new BigPotion

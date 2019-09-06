@@ -3,10 +3,10 @@ import { Weapon } from './weapon';
 export class Dagger extends Weapon{
 
     type = 'Daga'
-    damage = '1-6'
-    minimumDamage: number = 1
-    maximumDamage: number = 6
+    damage = '4-7'
+    minimumDamage: number = 4
+    maximumDamage: number = 7
     skill: string = 'Ligero'
-    description: string = 'Percepción aumentada en 30%'
+    description: string = 'Percepción aumentada en 25%'
     icon = '🗡️'
 }

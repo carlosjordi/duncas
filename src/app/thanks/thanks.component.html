@@ -3,32 +3,33 @@
 <p class="definition">Cualquier duda, sugerencia o queja puedes hacerla atraves de whatsapp: <b>+51 979666355</b></p>
 <p class="definition">Te dejo algunas stats de tu aventura en los calabozos de Duncas</p>
 
-<div class="container">
+<div class="big-container">
 
-    <div>
-        <label><b>{{hero.name}}</b></label>
-        <label>Vida: {{hero.hitpoints}}</label>
+    <div class="container">
+        <label><b>{{hero.name}} nivel {{hero.level}}</b></label>
+        <label>Vida: {{hero.maxHp}}</label>
         <label>Puntos de Salud: {{hero.hp}}</label>
         <label>Fuerza: {{hero.strength}}</label>
         <label>Destreza: {{hero.dexterity}}</label>
         <label>Percepci&oacute;n: {{hero.perception}}</label>
     </div>
 
-    <div>
+    <div class="container">
         <label>Arma usada: <b>{{hero.weapon.type}}</b> {{hero.weapon.icon}}</label>
         <label>Daño: {{hero.weapon.minimumDamage}} - {{hero.weapon.maximumDamage}}</label>
     </div>
 
-    <div>
+    <div class="container">
         <label>Pociones usadas</label>
         <label>Poci&oacute;n peque&ntilde;a: {{hero.smallPotionCounter}}</label>
         <label>Poci&oacute;n grande: {{hero.bigPotionCounter}}</label>
     </div>
 
-    <div>
+    <div class="container">
         <label>Da&ntilde;o</label>
         <label>Da&ntilde;o promedio: {{(hero.totalDamage / hero.attackCounter).toFixed(2)}}</label>
         <label>M&aacute;ximo da&ntilde;o: {{hero.maximumDamage.toFixed(2)}}</label>
+        <label>Da&ntilde;o total: {{hero.totalDamage.toFixed(2)}}</label>
     </div>
 </div>
 

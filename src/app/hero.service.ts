@@ -109,7 +109,7 @@ export class HeroService {
   }
 
   private attackChance(difference: number): number{
-    return 50 + (difference * 7.5)
+    return 50 + (difference * 6)
   }
 
   private calculateIfAttacked(attackChance: number): boolean{
