@@ -16,4 +16,11 @@ export class Hero{
     maxHp: number
     // 05 - 09 - 19 adding weapon for dagger ability
     weapon: Weapon
+    // 06 - 09 - 19 counter of used potions
+    smallPotionCounter = 0
+    bigPotionCounter = 0
+    // maximum damage - attacks counter - total damage
+    attackCounter = 0
+    maximumDamage = 0
+    totalDamage = 0
 }

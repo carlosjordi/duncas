@@ -119,6 +119,18 @@ export class HeroService {
     return false;
   }
 
+  attackCounterIncrease(){
+    this.hero.attackCounter += 1
+  }
+
+  maximumDamage(dmg: number){
+    this.hero.maximumDamage = dmg >= this.hero.maximumDamage ? dmg : this.hero.maximumDamage
+  }
+
+  totalDamageSum(dmg: number){
+    this.hero.totalDamage += dmg
+  }
+
   // daño del heroe
   heroDamage(hero: Hero, weapon: Weapon): number{
 
@@ -202,6 +214,7 @@ export class HeroService {
 
   private consumeItem(item: Item){
     item.amount -= 1
+    item.name === 'poción pequeña' ? this.hero.smallPotionCounter+=1 : this.hero.bigPotionCounter+=1
   }
 
   private applyEffect(item: Item){

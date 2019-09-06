@@ -1,3 +1,7 @@
+h4{
+    text-align: center;
+}
+
 .term{
     background-color: #804000;
     color: #fff;
@@ -20,13 +24,31 @@
     border: 1px solid #ccc;
 }
 
-.container{
-    width: 260px;
-    display: flex;
-    flex-flow: column wrap;
-    margin: 0 auto;
-    justify-content: center;
-    align-items: center;
-    border: 1px solid hsl(21, 23%, 25%);
-    padding: 10px;
+.title{
+    text-align: center;
+    font-size: 26px;
+}
+
+.hide{
+    display: none;
+}
+
+.show{
+    display: block;
+}
+
+.p{
+    margin-top: 3px;
+    margin-bottom: 3px;
+}
+
+.new{
+    color: hsl(0, 100%, 50%);
+    font-weight: 700;
+}
+
+.bc-gray{
+    background-color: #ccc;
+    border: 1px solid #666;
+    cursor: pointer;
 }

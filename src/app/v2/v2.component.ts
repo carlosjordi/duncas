@@ -12,4 +12,15 @@ export class V2Component implements OnInit {
   ngOnInit() {
   }
 
+  showAndHide() {
+    let v2 = document.getElementById('v2-log')
+    if (v2.classList.contains('hide')) {
+      v2.classList.add('show')
+      v2.classList.remove('hide')
+    } else {
+      v2.classList.add('hide')
+      v2.classList.remove('show')
+    }
+  }
+
 }

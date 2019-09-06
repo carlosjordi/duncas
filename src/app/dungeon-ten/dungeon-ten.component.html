@@ -1,15 +1,35 @@
 <div *ngIf="!nextStore">
 
     <div class="text-center mrl5">
-        <p class="blue medium">Se desvaneci&oacute; la muralla de fuego y las escaleras vuelven a quedar disponibles</p>
-        <p class="green regular">Subes las escaleras para llegar al segundo nivel</p>
-        <p class="narrative small">???: Alto ah&iacute;</p>
-        <p class="green regular">Volteas a ver de donde proviene la voz y observas un guerrero sentado</p>
-        <p class="narrative small">???: He de suponer que el hechicero est&aacute; muerto</p>
-        <p class="narrative small">{{hero.name}}: ...</p>
-        <p class="narrative small">???: Ser&iacute;a una verg&uuml;enza para su memoria que te deje pasar</p>
-        <p class="green regular">Se levanta</p>
-        <p class="narrative small">{{monster.type}}: Preparate, esto termino para ti</p>
+        <p class="blue medium">El caballero Ferret se encuentra en un estado deplorable, pero a&uacute;n con vida.</p>
+        <p class="green regular">Cae al suelo de rodillas y sosteniendose a duras penas con su espada</p>
+        <p class="narrative small"><b>Caballero Ferret</b>: Antes de irme, te dir&eacute; que &eacute;l ya no es tu
+            amigo. El hechicero que estaba dos pisos abajo se encargo de eso</p>
+        <p class="narrative small"><b>{{hero.name}}</b>: Si valoras tu vida, ser&aacute; mejor que te calles</p>
+        <p class="narrative small"><b>Caballero Ferret</b>: Este solo es uno de tantos castillos, tu amigo es solo uno
+            de tantos desafortunados</p>
+        <p class="green regular">Preparas tu {{weapon.type.toLowerCase()}}</p>
+        <p class="narrative small"><b>Caballero Ferret</b>: No eres rival para {{monster.type}}. As&iacute; que mej...
+        </p>
+        <p class="green regular">Prefieres acabar con &eacute;l a seguir escuch&aacute;ndolo</p>
+        <p class="narrative small"><b>{{hero.name}}</b>: Voy por ti Fonix, solo un piso nos separa</p>
+        <p class="green regular">Subes las &uacute;ltimas escaleras del castillo y lo ves claramente. Es Fonix en una
+            celda y a su lado, en un trono...</p>
+        <p class="narrative small"><b>{{monster.type}}</b>: Veo que ninguno de mis subordinados pudo detenerte</p>
+        <p class="narrative small"><b>{{hero.name}}</b>: Fonix! ya estoy aqu&iacute; resiste un poco</p>
+        <p class="narrative small"><b>{{monster.type}}</b>: No pareces muy educado, si un superior te habla... DEBES
+            RESPONDER!</p>
+        <p class="green regular">Lo que acaba de ocurrir, simplemente no lo aceptas... el pecho de Fonix est&aacute;
+            perforado, pero este no parece mostrar se&ntilde;ales de dolor</p>
+        <p class="narrative small"><b>{{hero.name}}</b>: FONIIX!! NOO!!</p>
+        <p class="narrative small"><b>{{monster.type}}</b>: No hay por que hacer esc&aacute;ndalo, estaba completamente
+            dopado, as&iacute; que no debe haber sentido su propia muerte</p>
+        <p class="narrative small"><b>{{hero.name}}</b>: Pagar&aacute;s por lo que acabas de hacer</p>
+        <p class="narrative small"><b>{{monster.type}}</b>: Deber&iacute;s agradecerme, los experimentos que le hizo
+            nuestro hechiero no salieron bien, est&aacute; mejor muerto que vivo</p>
+        <p class="narrative small"><b>{{hero.name}}</b>: Me asegurar&eacute; de que lo acompa&ntilde;es</p>
+        <p class="narrative small"><b>{{monster.type}}</b>: Definitivamente no tienes mucha educaci&oacute;n, se dice
+            'Me asegurar&eacute; de acompa&ntilde;arlo'</p>
     </div>
 
     <app-hero-overview [hero]="hero" [monster]="monster" [weapon]="weapon" (heroMessageEmmiter)="receiveMessage($event)"
@@ -34,7 +54,7 @@
 
 </div>
 
-<!--<app-store [hero]="hero" [weapon]="weapon" *ngIf="nextStore && openStore"
-    (nextDungeonEmitter)="continueToNextDungeon($event)"></app-store>-->
+<app-store [hero]="hero" [weapon]="weapon" *ngIf="nextStore && openStore"
+    (nextDungeonEmitter)="continueToNextDungeon($event)"></app-store>
 
-<app-thanks *ngIf="nextDungeon"></app-thanks>
+<app-thanks [hero]="hero" *ngIf="nextDungeon"></app-thanks>

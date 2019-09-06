@@ -1,5 +1,36 @@
-<p class="definition">Muchas gracias por seguir participando.</p>
+<p class="definition">Muchas gracias por dar parte de tu tiempo</p>
+<p class="definition">Esta aventura ya est&aacute; pr&aacute;cticamente terminada.</p>
 <p class="definition">Cualquier duda, sugerencia o queja puedes hacerla atraves de whatsapp: <b>+51 979666355</b></p>
-<p class="definition">A&uacute;n quedan unos cu&aacute;ntos niveles para terminar esta aventura.</p>
+<p class="definition">Te dejo algunas stats de tu aventura en los calabozos de Duncas</p>
+
+<div class="container">
+
+    <div>
+        <label><b>{{hero.name}}</b></label>
+        <label>Vida: {{hero.hitpoints}}</label>
+        <label>Puntos de Salud: {{hero.hp}}</label>
+        <label>Fuerza: {{hero.strength}}</label>
+        <label>Destreza: {{hero.dexterity}}</label>
+        <label>Percepci&oacute;n: {{hero.perception}}</label>
+    </div>
+
+    <div>
+        <label>Arma usada: <b>{{hero.weapon.type}}</b> {{hero.weapon.icon}}</label>
+        <label>Daño: {{hero.weapon.minimumDamage}} - {{hero.weapon.maximumDamage}}</label>
+    </div>
+
+    <div>
+        <label>Pociones usadas</label>
+        <label>Poci&oacute;n peque&ntilde;a: {{hero.smallPotionCounter}}</label>
+        <label>Poci&oacute;n grande: {{hero.bigPotionCounter}}</label>
+    </div>
+
+    <div>
+        <label>Da&ntilde;o</label>
+        <label>Da&ntilde;o promedio: {{(hero.totalDamage / hero.attackCounter).toFixed(2)}}</label>
+        <label>M&aacute;ximo da&ntilde;o: {{hero.maximumDamage.toFixed(2)}}</label>
+    </div>
+</div>
+
 
 <a class="button-dungeon p5 restart text-center" href="https://feorosonskidev.github.io/duncas/">Volver a Jugar</a>

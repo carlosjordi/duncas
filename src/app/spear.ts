@@ -9,4 +9,5 @@ export class Spear extends Weapon{
     skill: string = 'Muy pesada'
     description: string = '15% chande de fallar el ataque'
     icon = '🔱'
+    skillBonusDescription = 'Cada punto en fuerza disminuye 1.5% la chance de MUY PESADA'
 }

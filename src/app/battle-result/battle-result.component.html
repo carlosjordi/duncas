@@ -2,10 +2,10 @@
     <div *ngIf="heroWon">
         <p>{{hero.name.toUpperCase()}} ha derrotado al {{monster.type}}</p>
         <p>Has obtenido {{monster.experience}} de experiencia y {{monster.gold}} de oro.</p>
-        <p *ngIf="monster.item">Encontraste una {{monster.item.name}} entre los escombros</p>
+        <p *ngIf="monster.item"><b>Encontraste una {{monster.item.name}} entre los escombros</b></p>
 
         <div class="container" *ngIf="levelUp">
-            <label>Felicidades! Subiste a nivel {{hero.level}}!</label>
+            <label><b>Felicidades! Subiste a nivel {{hero.level}}!</b></label>
             <label>Tienes <span class="points">{{hero.points}}</span> puntos para repartir</label>
             <label>Vida: {{hero.hitpoints}}</label>
 
@@ -47,8 +47,8 @@
 
     <div *ngIf="monsterWon">
         <p>{{hero.name.toUpperCase()}}: Noo!! Piedad!</p>
-        <p class="before-restart">El {{monster.type}} lanza un &uacute;ltimo ataque el cual rompe tu cuello.
-            Es el fin de la aventura.</p>
+        <p class="before-restart"><b>El {{monster.type}} lanza un &uacute;ltimo ataque el cual rompe tu cuello.
+            Es el fin de la aventura.</b></p>
         <a class="button-dungeon p5 restart" href="https://feorosonskidev.github.io/duncas/">Volver a Empezar</a>
     </div>
 </div>

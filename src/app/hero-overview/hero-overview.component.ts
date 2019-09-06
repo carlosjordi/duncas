@@ -67,14 +67,22 @@ export class HeroOverviewComponent implements OnInit {
           if (weapon.type == 'Arco') {
             this.message = `${hero.name} logra apuntar a la cabeza logrando un crítico de ${this.damage * 2}!`
             this.monsterService.receiveDamage(this.monster, this.damage * 2)
+            this.heroService.totalDamageSum(this.damage * 2) // adding to total damage
+            this.heroService.maximumDamage(this.damage * 2) // maximum
           }
           else {
             this.message = `${hero.name} realiza un corte letal causando daño extra ${this.damage + +this.skillEffect()}!!`
             this.monsterService.receiveDamage(this.monster, this.damage + +this.skillEffect())
+            this.heroService.totalDamageSum(this.damage + +this.skillEffect()) // adding to total damage
+            this.heroService.maximumDamage(this.damage + +this.skillEffect()) // maximum
           }
+          this.heroService.attackCounterIncrease() // counting attacks skill
         }
       } else { // skill not activated
         this.monsterService.receiveDamage(this.monster, this.damage)
+        this.heroService.attackCounterIncrease() // counting attacks no skill
+        this.heroService.totalDamageSum(this.damage) // adding to total damage
+        this.heroService.maximumDamage(this.damage) // maximum
       }
       this.emmitHeroMessage(this.message) // envio el mensaje al papi para el battle overview
 

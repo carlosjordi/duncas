@@ -8,6 +8,7 @@ export class Bow extends Weapon{
     maximumDamage: number = 10
     skill: string = 'En la mira!'
     description: string = '15% chance de causar doble daño';
-    icon = '🏹'
+    icon = '🏹';
+    skillBonusDescription = 'Cada punto en destreza incrementa 3.5% la chance de EN LA MIRA'
 
 }

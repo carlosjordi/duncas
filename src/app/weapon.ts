@@ -4,4 +4,5 @@ export class Weapon{
     minimumDamage: number
     maximumDamage: number
     icon: string
+    skillBonusDescription: string
 }
